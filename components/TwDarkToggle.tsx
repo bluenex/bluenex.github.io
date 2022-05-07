@@ -17,6 +17,10 @@ const TwDarkToggle = () => {
   }, []);
 
   useEffect(() => {
+    if (darkMode === null) {
+      return;
+    }
+
     if (darkMode) {
       localStorage.setItem("theme", "dark");
       document.documentElement.classList.add("dark");
