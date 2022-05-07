@@ -1,6 +1,5 @@
-import Image from "next/image";
 import React from "react";
-import { TwAvatar, TwLink } from "../components";
+import { TwAvatar, TwDarkToggle, TwLink } from "../components";
 import Svgs from "../components/svgs";
 
 const Home = () => {
@@ -8,12 +7,7 @@ const Home = () => {
     <div className="min-w-screen debug-screens min-h-screen overflow-hidden bg-gray-100 py-6 text-gray-700 dark:bg-gray-800 dark:text-gray-50">
       <div className="container relative mx-auto flex flex-col items-center gap-6 py-12 px-6 sm:max-w-xl">
         {/* dark mode toggle */}
-        <div className="absolute top-4 right-4">
-          <button className="hover:scale-110 hover:duration-200">
-            <Svgs.MoonStar className="h-7 w-7 fill-gray-600 dark:hidden" />
-            <Svgs.SunDim className="hidden h-7 w-7 fill-gray-50 dark:block" />
-          </button>
-        </div>
+        <TwDarkToggle />
 
         {/* avatar */}
         <TwAvatar className="h-36 w-36" />
