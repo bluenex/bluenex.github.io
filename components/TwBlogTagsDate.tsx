@@ -11,10 +11,10 @@ dayjs.extend(customParseFormat);
 dayjs.locale("th");
 
 const TwBlogTagsDate = ({ itemData }: { itemData: PostListItem }) => {
-  const { date, tags } = itemData;
+  const { date, tags, modified } = itemData;
 
   return (
-    <div className="flex justify-between gap-8">
+    <div className="flex items-center justify-between gap-8">
       {Array.isArray(tags) && tags.length > 0 ? (
         <div>
           tags:{" "}
@@ -35,12 +35,22 @@ const TwBlogTagsDate = ({ itemData }: { itemData: PostListItem }) => {
         <div />
       )}
 
-      <span
-        className="min-w-fit"
-        title={dayjs(date, "DD-MM-YYYY HH:mm").toString()}
-      >
-        {dayjs(date, "DD-MM-YYYY HH:mm").format("D MMM BB")}
-      </span>
+      <div className="flex flex-col items-end">
+        <span
+          className="min-w-fit"
+          title={dayjs(date, "DD-MM-YYYY HH:mm").toString()}
+        >
+          {dayjs(date, "DD-MM-YYYY HH:mm").format("D MMM BB")}
+        </span>
+        {modified && (
+          <span
+            className="min-w-fit"
+            title={dayjs(modified, "DD-MM-YYYY HH:mm").toString()}
+          >
+            แก้ไข: {dayjs(modified, "DD-MM-YYYY HH:mm").format("D MMM BB")}
+          </span>
+        )}
+      </div>
     </div>
   );
 };
