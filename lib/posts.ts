@@ -15,8 +15,11 @@ interface MatterResultData {
 
 export interface PostData extends MatterResultData {
   id: string;
-  content: string;
   contentHtml: string;
+}
+export interface PostListItem extends MatterResultData {
+  id: string;
+  excerpt: string | undefined;
 }
 
 const postsDirectory = path.join(process.cwd(), "posts");
@@ -44,10 +47,10 @@ export function getAllPostIds() {
   });
 }
 
-export function getPostList() {
+export function getPostList(): PostListItem[] {
   const fileNames = glob.sync(`${postsDirectory}/**/*.md`);
 
-  const postList = fileNames.map((fileName) => {
+  const postList: PostListItem[] = fileNames.map((fileName) => {
     const [id] = fileName.split("/").slice(-1);
     const filePath = path.join(postsDirectory, id);
     const fileContents = readFileSync(filePath, "utf8");
@@ -104,8 +107,7 @@ export async function getPostData(id: string): Promise<PostData> {
   // combine the data with the id
   return {
     id,
-    content: matterResult.content,
-    contentHtml,
     ...(matterResult.data as MatterResultData),
+    contentHtml,
   };
 }
