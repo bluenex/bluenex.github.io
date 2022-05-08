@@ -1,4 +1,5 @@
 import "@fontsource/bai-jamjuree";
+import "highlight.js/styles/github-dark-dimmed.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import "../styles/globals.css";

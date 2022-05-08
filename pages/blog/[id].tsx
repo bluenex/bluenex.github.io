@@ -1,9 +1,11 @@
+import hljs from "highlight.js";
 import type {
   GetStaticPaths,
   GetStaticProps,
   InferGetStaticPropsType,
   NextPage,
 } from "next";
+import { useEffect } from "react";
 import TwBlogLayout from "../../components/TwBlogLayout";
 import TwBlogTagsDate from "../../components/TwBlogTagsDate";
 import { getAllPostIds, getPostData, PostData } from "../../lib/posts";
@@ -12,6 +14,10 @@ const Post: NextPage = ({
   postData,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { title } = postData as PostData;
+
+  useEffect(() => {
+    hljs.highlightAll();
+  }, []);
 
   // extract to @apply
   return (
