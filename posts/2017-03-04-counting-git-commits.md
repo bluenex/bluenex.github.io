@@ -48,7 +48,7 @@ ThesisProject [master] git shortlog -s --all | grep -Eo "[0-9]{1,4}" | awk '{ SU
 นับ thesis repo กันเลยทีเดียว ฮ่าาา นี่ขนาดเก็บผลเสร็จแล้วอะไรแล้วแต่ repo ก็ยัง active อยู่ อันนี้น่าจะยกความดีความชอบให้ git ได้เต็มๆ เลยแหละ เพราะโค้ดมันเป็น singleton มีที่เดียว ไม่ว่าจะทำงานจากเครื่องไหนก็เก็บโค้ดที่อัพเดทแล้วไว้ที่นี่มันก็เลยยังเติบโตมาได้เรื่อยๆ เจอบั๊กก็มาตามแก้ ใส่ issue อะไรก็ช่วยได้มาก สรุปคือถ้าต้องทำงานอะไรก็ตามที่เกี่ยวกับการเขียนโค้ดก็ใช้เหอะ เนาะ
 
 > *ref.*
-- [Adding numbers from the result of a grep](http://unix.stackexchange.com/questions/4840/adding-numbers-from-the-result-of-a-grep)
-- [How Do I fetch only the numbers in grep?](http://askubuntu.com/questions/184204/how-do-i-fetch-only-the-numbers-in-grep)
-- [Showing Git Commit Counts](http://zanshin.net/2012/06/08/showing-git-commit-counts/)
+> - [Adding numbers from the result of a grep](http://unix.stackexchange.com/questions/4840/adding-numbers-from-the-result-of-a-grep)
+> - [How Do I fetch only the numbers in grep?](http://askubuntu.com/questions/184204/how-do-i-fetch-only-the-numbers-in-grep)
+> - [Showing Git Commit Counts](http://zanshin.net/2012/06/08/showing-git-commit-counts/)
 

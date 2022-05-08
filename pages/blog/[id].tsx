@@ -4,21 +4,29 @@ import type {
   InferGetStaticPropsType,
   NextPage,
 } from "next";
+import TwBlogLayout from "../../components/TwBlogLayout";
+import TwBlogTagsDate from "../../components/TwBlogTagsDate";
 import { getAllPostIds, getPostData, PostData } from "../../lib/posts";
 
 const Post: NextPage = ({
   postData,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  // const { title, content, builder, builder_info, links, thumbnail } = postData;
-  // const reactContent = useMarkdownProcessor(content);
+  const { title } = postData as PostData;
 
-  console.log({ postData });
-
+  // extract to @apply
   return (
-    <article
-      className="prose prose-li:leading-6"
-      dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
-    ></article>
+    <TwBlogLayout>
+      <div className="flex flex-col gap-2">
+        <h1 className="text-3xl">{title}</h1>
+
+        <TwBlogTagsDate itemData={postData} />
+      </div>
+
+      <article
+        className="prose prose-a:text-sky-500 prose-a:underline prose-a:underline-offset-2 hover:prose-a:text-sky-700 prose-li:leading-6 dark:prose-invert prose-a:dark:text-sky-400 hover:prose-a:dark:text-sky-200"
+        dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
+      />
+    </TwBlogLayout>
   );
 };
 
