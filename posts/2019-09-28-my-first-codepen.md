@@ -12,11 +12,10 @@ tags: [web]
 
  สำหรับ Environment นั้นเราชอบ React กับ styled-components มากๆ แต่เนื่องจากไม่เคยใช้ CodePen มาก่อน เลยเสียเวลางมว่ามัน import ยังไงไปสักพักใหญ่ๆ แต่พอเริ่มคุ้นแล้วก็เพลินเลย จบบล็อกนี้ไปเท่านี้เลยดีกว่า ปิดท้ายกันด้วย Pen โลด
 
-<p class="codepen" data-height="406" data-theme-id="dark" data-default-tab="js,result" data-user="bluenex" data-slug-hash="oNvOZJY" data-preview="true" style="height: 406px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="star-dynamic-color">
-  <span>See the Pen <a href="https://codepen.io/bluenex/pen/oNvOZJY">
-  star-dynamic-color</a> by Tulakan Ruangrong (<a href="https://codepen.io/bluenex">@bluenex</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<iframe height="406" style="width: 100%;" scrolling="no" title="Font icon percentage bg" src="https://codepen.io/bluenex/embed/preview/oNvOZJY?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/bluenex/pen/oNvOZJY">
+  Font icon percentage bg</a> by Tulakan Ruangrong (<a href="https://codepen.io/bluenex">@bluenex</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
 
 ปล. ยังมีเรื่องของ Performance ซึ่งเราก็ไม่รู้ว่าแบบไหนทำได้ดีกว่ากัน ลองค้นคร่าวๆ ก็ไม่เจออะไรเป็นพิเศษ ถ้ามีอะไรเพิ่มเติมไว้ค่อยมาอัพเดททีหลังละกัน 😬

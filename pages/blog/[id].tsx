@@ -29,7 +29,17 @@ const Post: NextPage = ({
       </div>
 
       <article
-        className="prose prose-a:text-sky-500 prose-a:underline prose-a:underline-offset-2 hover:prose-a:text-sky-700 prose-li:leading-6 dark:prose-invert prose-a:dark:text-sky-400 hover:prose-a:dark:text-sky-200"
+        className={`
+          prose
+          prose-a:text-sky-500 prose-a:underline prose-a:underline-offset-2 hover:prose-a:text-sky-700
+          prose-blockquote:border-sky-500 prose-blockquote:bg-sky-100 prose-blockquote:py-0.5
+          prose-pre:border-2 prose-pre:border-gray-500 prose-pre:p-0
+          prose-li:leading-6
+          prose-img:mx-auto
+          dark:prose-invert
+          prose-a:dark:text-sky-400 hover:prose-a:dark:text-sky-200
+          prose-blockquote:dark:text-gray-800
+        `}
         dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
       />
     </TwBlogLayout>

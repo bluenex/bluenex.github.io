@@ -1,7 +1,7 @@
 import NextLink from "next/link";
 import { DetailedHTMLProps, HTMLAttributes } from "react";
 import TwAvatar from "./TwAvatar";
-import TwBlogNav from "./twBlogNav";
+import TwBlogNav from "./TwBlogNav";
 import TwDarkToggle from "./TwDarkToggle";
 import TwFooter from "./TwFooter";
 import TwLayout from "./TwLayout";
@@ -13,7 +13,7 @@ const TwBlogLayout = (
 
   return (
     <TwLayout {...restProps}>
-      <div className="flex flex-col justify-between gap-20">
+      <div className="flex min-h-screen flex-col justify-between gap-20">
         <div className="container mx-auto flex flex-col gap-6 px-6 pt-6 md:max-w-2xl md:px-0">
           {/* header bar */}
           <div className="relative flex items-center justify-between">
