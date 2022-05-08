@@ -7,6 +7,7 @@ tags: [git]
 เป็นธรรมดาที่เมื่อถึงจุดๆ นึงก็จะอยากรู้ว่าเราทำอะไรไปบ้างแล้ว มากขนาดไหนกัน โดยเฉพาะเมื่อใช้ git ที่บันทึกทุกอย่างตั้งแต่เริ่มสร้าง repo ยิ่งน่าสนใจ คำตอบของคำถามที่เป็นชื่อของโพสต์นี้ก็ไม่ยากเลย กูเกิลสิครับ ปะ ขอแบ่งเป็นนับแยกกับนับรวมละกัน
 
 ### นับแยก author
+
 อันนี้จะใช้ `shortlog` ซึ่งก็เป็นคำสั่งของ git นี่แหละ ถ้ารัน `git shortlog` เฉยๆ ก็เหมือนปริ้นท์หน้าคอมมิทบน Github หรือ Bitbucket มาดูนั่นแหละ เพราะฉะนั้นมันจึงมี option ให้ใช้ ถ้าจะนับคอมมิททั้งหมดแยกตาม author โดยเรียงจากมากไปน้อยก็
 
 ```sh
@@ -20,6 +21,7 @@ git shortlog -s -n --all | cat
 ```
 
 ### นับรวมทั้งหมด
+
 ส่วนอันนี้ต้องเล่นท่าหน่อย ดูคำสั่งก่อนเลย
 
 ```sh
@@ -47,8 +49,9 @@ ThesisProject [master] git shortlog -s --all | grep -Eo "[0-9]{1,4}" | awk '{ SU
 
 นับ thesis repo กันเลยทีเดียว ฮ่าาา นี่ขนาดเก็บผลเสร็จแล้วอะไรแล้วแต่ repo ก็ยัง active อยู่ อันนี้น่าจะยกความดีความชอบให้ git ได้เต็มๆ เลยแหละ เพราะโค้ดมันเป็น singleton มีที่เดียว ไม่ว่าจะทำงานจากเครื่องไหนก็เก็บโค้ดที่อัพเดทแล้วไว้ที่นี่มันก็เลยยังเติบโตมาได้เรื่อยๆ เจอบั๊กก็มาตามแก้ ใส่ issue อะไรก็ช่วยได้มาก สรุปคือถ้าต้องทำงานอะไรก็ตามที่เกี่ยวกับการเขียนโค้ดก็ใช้เหอะ เนาะ
 
-> *ref.*
-> - [Adding numbers from the result of a grep](http://unix.stackexchange.com/questions/4840/adding-numbers-from-the-result-of-a-grep)
-> - [How Do I fetch only the numbers in grep?](http://askubuntu.com/questions/184204/how-do-i-fetch-only-the-numbers-in-grep)
-> - [Showing Git Commit Counts](http://zanshin.net/2012/06/08/showing-git-commit-counts/)
+### ref.
+
+- [Adding numbers from the result of a grep](http://unix.stackexchange.com/questions/4840/adding-numbers-from-the-result-of-a-grep)
+- [How Do I fetch only the numbers in grep?](http://askubuntu.com/questions/184204/how-do-i-fetch-only-the-numbers-in-grep)
+- [Showing Git Commit Counts](http://zanshin.net/2012/06/08/showing-git-commit-counts/)
 

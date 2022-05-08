@@ -12,6 +12,6 @@ tags: [diary, song]
 
 ..แต่เนื่องจากเป็นคนที่มักจะมองโลกเผื่อแง่ร้ายไว้เสมอ มันก็คงต้องมีประโยคดักที่ว่า "ถึงจะไม่มีอะไรดีๆ เกิดขึ้นก็ไม่เป็นไรหรอกเนาะ อย่างน้อยก็ได้มีช่วงดีๆ ให้พอสุขใจ" ไว้เพื่อเตือนใจตัวเองอยู่ดี 555
 
-<center>
-  <div class="embed-container"><iframe src="https://www.youtube.com/embed/uh4dTLJ9q9o" frameborder="0" allowfullscreen></iframe></div>
-</center>
+<div class="embed-container">
+  <iframe src="https://www.youtube.com/embed/uh4dTLJ9q9o" frameborder="0" allowfullscreen></iframe>
+</div>

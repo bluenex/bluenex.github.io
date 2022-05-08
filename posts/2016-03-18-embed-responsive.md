@@ -19,7 +19,9 @@ https://www.youtube.com/watch?v=feVeUWCu15E
 ```
 และถ้าเอาทั้งก้อนไปแปะบนเว็บของเราก็จะได้วิดิโอแบบข้างล่างนี้ ลองเช็คดูทั้งในมือถือและคอมก็จะเห็นว่าแสดงผลได้ responsive น่าชื่นใจ
 
-<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed/feVeUWCu15E' frameborder='0' allowfullscreen></iframe></div>
+<div class='embed-container'>
+  <iframe src='https://www.youtube.com/embed/feVeUWCu15E' frameborder='0' allowfullscreen></iframe>
+</div>
 
 จริงๆ แล้วมันก็คือการแปะ css ที่อยู่ในแท็ก `<style>` มาด้วยนั่นเอง เราจึงสามารถแกะออกมาแล้วก็เอาไปใส่ไฟล์ css ของเราได้อย่างง่ายๆ แต่ถ้าให้ลองแก้เองล่ะก็คงใช้เวลาประมาณนึงเลยมั้ง กราบขอบพระคุณ [@jeffehobbs](https://github.com/jeffehobbs) ผู้พัฒนาเว็บแอปนี้มา ณ ที่นี้ ว่าแล้วก็ลองเอาโค้ด css มาเรียงซะหน่อย
 
@@ -31,6 +33,7 @@ https://www.youtube.com/watch?v=feVeUWCu15E
   overflow: hidden;
   max-width: 100%;
 }
+
 .embed-container iframe, .embed-container object, .embed-container embed {
   position: absolute;
   top: 0;

@@ -22,8 +22,8 @@ const Post: NextPage = ({
   // extract to @apply
   return (
     <TwBlogLayout>
-      <div className="flex flex-col gap-2">
-        <h1 className="text-3xl">{title}</h1>
+      <div className="mb-4 flex flex-col gap-2">
+        <h1 className="text-center text-3xl">{title}</h1>
 
         <TwBlogTagsDate itemData={postData} />
       </div>
@@ -32,7 +32,7 @@ const Post: NextPage = ({
         className={`
           prose
           prose-a:text-sky-500 prose-a:underline prose-a:underline-offset-2 hover:prose-a:text-sky-700
-          prose-blockquote:border-sky-500 prose-blockquote:bg-sky-100 prose-blockquote:py-0.5
+          prose-blockquote:border-sky-500 prose-blockquote:bg-sky-100 prose-blockquote:py-0.5 prose-blockquote:not-italic
           prose-pre:border-2 prose-pre:border-gray-500 prose-pre:p-0
           prose-li:leading-6
           prose-img:mx-auto
