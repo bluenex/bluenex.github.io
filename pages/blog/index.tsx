@@ -1,20 +1,12 @@
-import type {
-  GetStaticPaths,
-  GetStaticProps,
-  InferGetStaticPropsType,
-  NextPage,
-} from "next";
-import { TwAvatar } from "../../components";
-import {
-  getAllPostIds,
-  getPostData,
-  getPostList,
-  PostData,
-} from "../../lib/posts";
 import dayjs from "dayjs";
 import "dayjs/locale/th";
 import buddhistEra from "dayjs/plugin/buddhistEra";
 import customParseFormat from "dayjs/plugin/customParseFormat";
+import type { GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
+import { ReactNode } from "react";
+import { TwLink } from "../../components";
+import TwBlogLayout from "../../components/TwBlogLayout";
+import { getPostList } from "../../lib/posts";
 
 dayjs.extend(buddhistEra);
 dayjs.extend(customParseFormat);
@@ -23,62 +15,24 @@ dayjs.locale("th");
 const Post: NextPage = ({
   postList,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  // const { title, content, builder, builder_info, links, thumbnail } = postList;
-  // const reactContent = useMarkdownProcessor(content);
-  console.log({ postList });
-
   return (
-    <div className="min-w-screen debug-screens min-h-screen overflow-hidden bg-gray-800 text-gray-100">
-      <div className="container mx-auto">
-        <div className="flex items-center justify-center gap-4 py-6 px-2">
-          <a
-            href=""
-            className="hover:scale-105 hover:transition-transform hover:duration-300"
-          >
-            <TwAvatar className="h-12 w-12" />
-          </a>
-          <span className="text-xl">blog</span>
-        </div>
+    <TwBlogLayout>
+      {/* nav */}
+      <nav className="mb-4 flex justify-center gap-2 text-sm">
+        <TwLink href="">tags</TwLink>•<TwLink href="">years</TwLink>•
+        <TwLink href="">2022</TwLink>•<TwLink href="">2021</TwLink>•
+        <TwLink href="">2020</TwLink>
+      </nav>
 
-        <nav className="flex justify-center gap-2">
-          <a
-            href=""
-            className="text-sm text-sky-400 underline underline-offset-2"
-          >
-            tags
-          </a>
-          •
-          <a
-            href=""
-            className="text-sm text-sky-400 underline underline-offset-2"
-          >
-            years
-          </a>
-          •
-          <a
-            href=""
-            className="text-sm text-sky-400 underline underline-offset-2"
-          >
-            2022
-          </a>
-          •
-          <a
-            href=""
-            className="text-sm text-sky-400 underline underline-offset-2"
-          >
-            2021
-          </a>
-          •
-          <a
-            href=""
-            className="text-sm text-sky-400 underline underline-offset-2"
-          >
-            2020
-          </a>
-        </nav>
-
-        <div className="mx-auto flex flex-col items-start gap-4 p-4 md:max-w-2xl">
-          {postList.map((post) => {
+      {/* posts list */}
+      <div className="flex flex-col items-start gap-4 ">
+        {postList.map(
+          (post: {
+            title: string;
+            date: string;
+            tags: string[];
+            excerpt: string;
+          }) => {
             const { title, date, tags, excerpt } = post;
 
             return (
@@ -86,8 +40,11 @@ const Post: NextPage = ({
                 key={date}
                 className="flex w-full flex-col gap-3 border-b border-b-gray-400 pb-5 last:border-b-0"
               >
-                <a href="" className="flex flex-col gap-3 hover:text-sky-300">
-                  <h3 className="text-2xl">{title}</h3>
+                <a
+                  href=""
+                  className="flex flex-col gap-3 hover:text-sky-500 hover:dark:text-sky-300"
+                >
+                  <h3 className="text-2xl font-semibold">{title}</h3>
 
                   <p>{excerpt}</p>
                 </a>
@@ -98,16 +55,15 @@ const Post: NextPage = ({
                     {tags
                       .map((tag) => {
                         return (
-                          <a
-                            key={tag}
-                            href=""
-                            className="text-sky-400 underline underline-offset-2"
-                          >
+                          <TwLink key={tag} href="">
                             {tag}
-                          </a>
+                          </TwLink>
                         );
                       })
-                      .reduce((prev, curr) => [prev, ", ", curr])}
+                      .reduce<ReactNode>(
+                        (prev, curr) => [prev, ", ", curr],
+                        undefined
+                      )}
                   </div>
 
                   <span className="min-w-fit">
@@ -116,10 +72,10 @@ const Post: NextPage = ({
                 </div>
               </div>
             );
-          })}
-        </div>
+          }
+        )}
       </div>
-    </div>
+    </TwBlogLayout>
   );
 };
 

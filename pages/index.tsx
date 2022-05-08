@@ -1,13 +1,16 @@
 import React from "react";
 import { TwAvatar, TwDarkToggle, TwLink } from "../components";
 import Svgs from "../components/svgs";
+import NextLink from "next/link";
+import TwFooter from "../components/TwFooter";
+import TwLayout from "../components/TwLayout";
 
 const Home = () => {
   return (
-    <div className="min-w-screen debug-screens min-h-screen overflow-hidden bg-gray-100 py-6 text-gray-700 dark:bg-gray-800 dark:text-gray-50">
+    <TwLayout className="py-6">
       <div className="container relative mx-auto flex flex-col items-center gap-6 py-12 px-6 sm:max-w-xl">
         {/* dark mode toggle */}
-        <TwDarkToggle />
+        <TwDarkToggle className="absolute top-4 right-4" />
 
         {/* avatar */}
         <TwAvatar className="h-36 w-36" />
@@ -16,13 +19,17 @@ const Home = () => {
         <nav className="w-full px-6">
           <ul className="mx-auto flex max-w-sm flex-col gap-2 border-b border-gray-400 pb-6 text-center">
             <li>
-              <TwLink href="#">blog</TwLink>
+              <NextLink href="/blog" passHref>
+                <TwLink>blog</TwLink>
+              </NextLink>
             </li>
             <li>
-              <TwLink href="https://bluenex.dev/resume">resume</TwLink>
+              <TwLink href="https://bluenex.dev/resume" isExternal>
+                resume
+              </TwLink>
             </li>
             <li>
-              <TwLink href="https://bluenex.dev/frontend-collection">
+              <TwLink href="https://bluenex.dev/frontend-collection" isExternal>
                 frontend-collection
               </TwLink>
             </li>
@@ -45,23 +52,10 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="flex items-center justify-center gap-6">
-            <TwLink
-              href="https://github.com/bluenex"
-              className="hover:scale-110 hover:duration-200"
-            >
-              <Svgs.GitHub className="h-8 w-8 fill-gray-600 dark:fill-gray-300" />
-            </TwLink>
-            <TwLink
-              href="https://twitter.com/tulakann"
-              className="hover:scale-110 hover:duration-200"
-            >
-              <Svgs.Twitter className="h-8 w-8 fill-gray-600 dark:fill-gray-300" />
-            </TwLink>
-          </div>
+          <TwFooter />
         </div>
       </div>
-    </div>
+    </TwLayout>
   );
 };
 

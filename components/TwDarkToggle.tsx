@@ -1,8 +1,11 @@
-import { useEffect, useState } from "react";
+import { DetailedHTMLProps, HTMLAttributes, useEffect, useState } from "react";
 import Svgs from "./svgs";
 
-const TwDarkToggle = () => {
+const TwDarkToggle = (
+  props: DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
+) => {
   const [darkMode, setDarkMode] = useState<boolean | null>(null);
+  const { className = "" } = props;
 
   useEffect(() => {
     if (
@@ -31,8 +34,9 @@ const TwDarkToggle = () => {
   }, [darkMode]);
 
   return (
-    <div className="absolute top-4 right-4">
+    <div className={className}>
       <button
+        type="button"
         className="hover:scale-110 hover:duration-200"
         onClick={() => setDarkMode((p) => !p)}
       >
