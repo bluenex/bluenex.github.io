@@ -4,6 +4,7 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import SEO from "../components/SEO";
 import * as gtag from "../lib/gtag";
 import "../styles/globals.css";
 const isProduction = process.env.NODE_ENV === "production";
@@ -30,6 +31,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   // prettier-ignore
   return (
     <>
+      <SEO />
       <Head>
         <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
