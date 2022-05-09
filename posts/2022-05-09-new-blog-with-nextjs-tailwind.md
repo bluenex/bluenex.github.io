@@ -10,7 +10,7 @@ I have finished a couple of small projects using Chakra UI in the past months an
 
 ## Tailwind CSS
 
-In order to prepare myself for the next project, I try playing and researhing around to improve my knowledge to be able to decide whether to actually go with Tailwind CSS or not. And that is when I found a post by [Code in the Wind #1](https://www.facebook.com/events/5398524660192656/?post_id=5402035836508205&view=permalink) and learned about [tailwindPLAY](https://play.tailwindcss.com/). In that post there is an example question so I tried drawing without previous knowledge about Tailwind CSS and once I finished the question, I gained some confidence to try it out more.
+In order to prepare myself for the next project, I try playing and researching around to improve my knowledge to be able to decide whether to actually go with Tailwind CSS or not. And that is when I found a post by [Code in the Wind #1](https://www.facebook.com/events/5398524660192656/?post_id=5402035836508205&view=permalink) and learned about [tailwindPLAY](https://play.tailwindcss.com/). In that post there is an example question so I tried drawing without previous knowledge about Tailwind CSS and once I finished the question, I gained some confidence to try it out more.
 
 ## A new website
 
