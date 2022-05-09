@@ -7,6 +7,7 @@ import type {
 } from "next";
 import NextLink from "next/link";
 import { useEffect } from "react";
+import SEO from "../../components/SEO";
 import TwBlogLayout from "../../components/TwBlogLayout";
 import { TwBlogNavButton } from "../../components/TwBlogNav";
 import TwBlogTagsDate from "../../components/TwBlogTagsDate";
@@ -16,7 +17,7 @@ import { getAllPostIds, getPostData, PostData } from "../../lib/posts";
 const Post: NextPage = ({
   postData,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const { title } = postData as PostData;
+  const { title, excerpt } = postData as PostData;
 
   useEffect(() => {
     hljs.highlightAll();
@@ -25,6 +26,7 @@ const Post: NextPage = ({
   // extract to @apply
   return (
     <TwBlogLayout>
+      <SEO title={title} description={excerpt} />
       <div className="mb-4 flex flex-col gap-4">
         <h1 className="text-center text-3xl font-semibold">{title}</h1>
 

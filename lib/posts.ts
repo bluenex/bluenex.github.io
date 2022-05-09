@@ -2,7 +2,6 @@ import { readFileSync } from "fs";
 import { glob } from "glob";
 import matter from "gray-matter";
 import path from "path";
-import { ParsedUrlQuery } from "querystring";
 import { remark } from "remark";
 import html from "remark-html";
 
@@ -14,17 +13,34 @@ interface MatterResultData {
   thumbnail?: string;
 }
 
-export interface PostData extends MatterResultData {
-  id: string;
-  contentHtml: string;
-}
 export interface PostListItem extends MatterResultData {
   id: string;
   year: string;
   excerpt: string | undefined;
 }
 
+export interface PostData extends PostListItem {
+  contentHtml: string;
+}
+
 const postsDirectory = path.join(process.cwd(), "posts");
+
+const firstParagraphAsExcerpt = (f: { content: string; excerpt: string }) => {
+  // excerpt may have link inside, we need to replace with normal text
+  f.excerpt = f.content.split("\n")[1];
+
+  const links = Array.from(
+    f.excerpt?.matchAll(
+      /(\[((?:\[[^\]]*\]|[^\[\]])*)\]\([ \t]*()<?((?:\([^)]*\)|[^()\s])*?)>?[ \t]*((['"])(.*?)\6[ \t]*)?\))/g
+    ) || []
+  );
+
+  if (links.length > 0) {
+    links.forEach((link) => {
+      f.excerpt = f.excerpt.replace(link[0], link[2]);
+    });
+  }
+};
 
 export function getAllPostIds() {
   const fileNames = glob.sync(`${postsDirectory}/**/*.md`);
@@ -58,30 +74,10 @@ export function getPostList(): PostListItem[] {
     const filePath = path.join(postsDirectory, id);
     const fileContents = readFileSync(filePath, "utf8");
 
-    const firstParagraphAsExcept = (f: {
-      content: string;
-      excerpt: string;
-    }) => {
-      // excerpt may have link inside, we need to replace with normal text
-      f.excerpt = f.content.split("\n")[1];
-
-      const links = Array.from(
-        f.excerpt?.matchAll(
-          /(\[((?:\[[^\]]*\]|[^\[\]])*)\]\([ \t]*()<?((?:\([^)]*\)|[^()\s])*?)>?[ \t]*((['"])(.*?)\6[ \t]*)?\))/g
-        ) || []
-      );
-
-      if (links.length > 0) {
-        links.forEach((link) => {
-          f.excerpt = f.excerpt.replace(link[0], link[2]);
-        });
-      }
-    };
-
     const matterResult = matter(fileContents, {
       /** they have incorrect type here */
       // @ts-ignore
-      excerpt: firstParagraphAsExcept,
+      excerpt: firstParagraphAsExcerpt,
     });
 
     return {
@@ -96,11 +92,16 @@ export function getPostList(): PostListItem[] {
 }
 
 export async function getPostData(id: string): Promise<PostData> {
+  const [year] = id.split("-");
   const fullPath = path.join(postsDirectory, `${id}.md`);
   const fileContents = readFileSync(fullPath, "utf8");
 
   // use gray-matter to parse the post metadata section
-  const matterResult = matter(fileContents);
+  const matterResult = matter(fileContents, {
+    /** they have incorrect type here */
+    // @ts-ignore
+    excerpt: firstParagraphAsExcerpt,
+  });
 
   // use remark to convert markdown into HTML string
   const processedContent = await remark()
@@ -111,7 +112,9 @@ export async function getPostData(id: string): Promise<PostData> {
   // combine the data with the id
   return {
     id,
+    year,
     ...(matterResult.data as MatterResultData),
+    excerpt: matterResult.excerpt,
     contentHtml,
   };
 }
