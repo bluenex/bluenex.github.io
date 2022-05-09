@@ -2,6 +2,7 @@ import dayjs from "dayjs";
 import "dayjs/locale/th";
 import buddhistEra from "dayjs/plugin/buddhistEra";
 import customParseFormat from "dayjs/plugin/customParseFormat";
+import NextLink from "next/link";
 import { ReactNode } from "react";
 import { PostListItem } from "../lib/posts";
 import TwLink from "./TwLink";
@@ -21,9 +22,9 @@ const TwBlogTagsDate = ({ itemData }: { itemData: PostListItem }) => {
           {tags
             .map((tag) => {
               return (
-                <TwLink key={tag} href="">
-                  {tag}
-                </TwLink>
+                <NextLink href={`/blog?tag=${tag}`} key={tag} passHref>
+                  <TwLink>{tag}</TwLink>
+                </NextLink>
               );
             })
             .reduce<ReactNode>(
