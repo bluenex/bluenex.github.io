@@ -20,7 +20,7 @@ The experience with Tailwind CSS is great and I am very happy with the result.
 
 ### Issue
 
-To deploy on GitHub Pages, the site has to be exported with `next export` and with that, [some of the features are not available](https://nextjs.org/docs/advanced-features/static-html-export). One of the features that I initially need to use is the `getServerSideProps` to get tags and years of all posts for navigation in `/blog` route. However, it is not supported by static export.
+To deploy on GitHub Pages, the site has to be exported with `next export` and with that, [some of the features are not available](https://nextjs.org/docs/advanced-features/static-html-export#unsupported-features). One of the features that I initially need to use is the `getServerSideProps` to get tags and years of all posts for navigation in `/blog` route. Unfortunately, it is not supported by static export.
 
 Considering that this data won't be changed unless I added a new post. I workaround this by implementing a script to run before `npm run dev` called `predev.js` to gather all the tags and years and store as a `static-data.json`. The only thing I need to be aware is to not forget running `npm run dev` or `npm run predev` before deploying.
 
