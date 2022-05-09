@@ -66,7 +66,7 @@ const TwBlogNav = () => {
                   onClick={() => {
                     router.push(
                       {
-                        pathname: router.pathname,
+                        pathname: "/blog",
                         query: { tag },
                       },
                       undefined
@@ -85,7 +85,7 @@ const TwBlogNav = () => {
                   onClick={() => {
                     router.push(
                       {
-                        pathname: router.pathname,
+                        pathname: "/blog",
                         query: { year },
                       },
                       undefined
