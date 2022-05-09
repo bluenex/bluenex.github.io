@@ -14,7 +14,7 @@ In order to prepare myself for the next project, I try playing and researhing ar
 
 ## A new website
 
-My personal website domain (https://bluenex.dev) was a simple blog built by [Jekyll Now](https://github.com/barryclark/jekyll-now) and served on GitHub Pages. My goal this time was to build a new personal website using Next.js and Tailwind CSS with TypeScript and still deploy on GitHub Pages.
+My personal website domain ([https://bluenex.dev](https://bluenex.dev)) was a simple blog built by [Jekyll Now](https://github.com/barryclark/jekyll-now) and served on GitHub Pages. My goal this time was to build a new personal website using Next.js and Tailwind CSS with TypeScript and still deploy on GitHub Pages.
 
 The experience with Tailwind CSS is great and I am very happy with the result.
 
@@ -26,6 +26,6 @@ Considering that this data won't be changed unless I added a new post. I workaro
 
 ## Summary
 
-The site is now up and running on https://bluenex.dev. The design is the bare minimum I can think of by myself to satisfy my expectations. This personal website project is actually a good start for the upcoming project. There are more to improve and I will be back to this project from time to time.
+The site is now up and running on [https://bluenex.dev](https://bluenex.dev). The design is the bare minimum I can think of by myself to satisfy my expectations. This personal website project is actually a good start for the upcoming project. There are more to improve and I will be back to this project from time to time.
 
 This is my first post in English so the language may not be natural. Anyway, I hope it is readable and helpful for others who want to start something new.
