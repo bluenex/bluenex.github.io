@@ -1,9 +1,10 @@
-import React from "react";
-import { TwAvatar, TwDarkToggle, TwLink } from "../components";
-import Svgs from "../components/svgs";
 import NextLink from "next/link";
+import React from "react";
+import TwAvatar from "../components/TwAvatar";
+import TwDarkToggle from "../components/TwDarkToggle";
 import TwFooter from "../components/TwFooter";
 import TwLayout from "../components/TwLayout";
+import TwLink from "../components/TwLink";
 
 const Home = () => {
   return (
