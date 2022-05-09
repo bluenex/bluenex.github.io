@@ -33,7 +33,10 @@ function MyApp({ Component, pageProps }: AppProps) {
   // prettier-ignore
   return (
     <ThemeProvider>
+      {/* default SEO */}
       <SEO />
+
+      {/* favicon */}
       <Head>
         <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
@@ -45,6 +48,8 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
         <meta name="theme-color" content="#ffffff" />
       </Head>
+
+      {/* page component */}
       <Component {...pageProps} />
     </ThemeProvider>
   );

@@ -26,13 +26,17 @@ const Post: NextPage = ({
   // extract to @apply
   return (
     <TwBlogLayout>
+      {/* SEO for blog details */}
       <SEO title={title} description={excerpt} />
+
+      {/* title, tags, timestamp  */}
       <div className="mb-4 flex flex-col gap-4">
         <h1 className="text-center text-3xl font-semibold">{title}</h1>
 
         <TwBlogTagsDate itemData={postData} />
       </div>
 
+      {/* md content */}
       <article
         className={`
           prose
@@ -48,6 +52,7 @@ const Post: NextPage = ({
         dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
       />
 
+      {/* bottom navigation */}
       <div className="mt-6 flex justify-between">
         <NextLink href="/blog" passHref>
           <TwLink>blog</TwLink>

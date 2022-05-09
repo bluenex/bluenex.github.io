@@ -7,6 +7,7 @@ export default function Document() {
   return (
     <Html>
       <Head>
+        {/* only run gtag script in production */}
         {isProduction && (
           <>
             <script
@@ -31,6 +32,7 @@ export default function Document() {
       <body>
         <Main />
         <NextScript />
+        {/* this script helps initiate theme before interactive */}
         <script
           defer
           dangerouslySetInnerHTML={{
