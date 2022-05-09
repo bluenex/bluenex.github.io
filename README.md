@@ -29,7 +29,13 @@ Currently deploy on GitHub Pages, check [main.yml](.github/workflows/main.yml) f
 
 ## Add a blog post
 
-A new post can be added in `/posts` directory with a file name format `{year}-{month}-{date}-{tile-as-kebab-case}.md` (*[kebab-case](https://en.wiktionary.org/wiki/kebab_case)).
+A new post can be added in `/posts` directory with a file name format:
+
+```txt
+{year}-{month}-{date}-{tile-as-kebab-case}.md
+```
+
+ > *[kebab-case](https://en.wiktionary.org/wiki/kebab_case)
 
 Support frontmatter:
 
