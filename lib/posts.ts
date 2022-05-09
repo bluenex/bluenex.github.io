@@ -49,7 +49,7 @@ export function getAllPostIds() {
   });
 }
 
-export function getPostList(params: ParsedUrlQuery): PostListItem[] {
+export function getPostList(): PostListItem[] {
   const fileNames = glob.sync(`${postsDirectory}/**/*.md`);
 
   const postList: PostListItem[] = fileNames.map((fileName) => {
@@ -91,22 +91,6 @@ export function getPostList(params: ParsedUrlQuery): PostListItem[] {
       excerpt: matterResult.excerpt,
     };
   });
-
-  if (params.tag) {
-    return postList
-      .filter((post) => {
-        return post.tags?.includes(params.tag as string);
-      })
-      .reverse();
-  }
-
-  if (params.year) {
-    return postList
-      .filter((post) => {
-        return post.year === params.year;
-      })
-      .reverse();
-  }
 
   return postList.reverse();
 }
