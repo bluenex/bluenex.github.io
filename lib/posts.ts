@@ -2,6 +2,7 @@ import { readFileSync } from "fs";
 import { glob } from "glob";
 import matter from "gray-matter";
 import path from "path";
+import { ParsedUrlQuery } from "querystring";
 import { remark } from "remark";
 import html from "remark-html";
 
@@ -19,6 +20,7 @@ export interface PostData extends MatterResultData {
 }
 export interface PostListItem extends MatterResultData {
   id: string;
+  year: string;
   excerpt: string | undefined;
 }
 
@@ -47,11 +49,12 @@ export function getAllPostIds() {
   });
 }
 
-export function getPostList(): PostListItem[] {
+export function getPostList(params: ParsedUrlQuery): PostListItem[] {
   const fileNames = glob.sync(`${postsDirectory}/**/*.md`);
 
   const postList: PostListItem[] = fileNames.map((fileName) => {
     const [id] = fileName.split("/").slice(-1);
+    const [year] = id.split("-");
     const filePath = path.join(postsDirectory, id);
     const fileContents = readFileSync(filePath, "utf8");
 
@@ -83,10 +86,27 @@ export function getPostList(): PostListItem[] {
 
     return {
       id: id.replace(/\.md$/, ""),
+      year,
       ...(matterResult.data as MatterResultData),
       excerpt: matterResult.excerpt,
     };
   });
+
+  if (params.tag) {
+    return postList
+      .filter((post) => {
+        return post.tags?.includes(params.tag as string);
+      })
+      .reverse();
+  }
+
+  if (params.year) {
+    return postList
+      .filter((post) => {
+        return post.year === params.year;
+      })
+      .reverse();
+  }
 
   return postList.reverse();
 }

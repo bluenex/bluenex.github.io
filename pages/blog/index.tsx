@@ -1,11 +1,15 @@
-import type { GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
+import type {
+  GetServerSideProps,
+  InferGetServerSidePropsType,
+  NextPage,
+} from "next";
 import TwBlogLayout from "../../components/TwBlogLayout";
 import TwBlogListItem from "../../components/TwBlogListItem";
 import { getPostList, PostListItem } from "../../lib/posts";
 
 const Post: NextPage = ({
   postList,
-}: InferGetStaticPropsType<typeof getStaticProps>) => {
+}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return (
     <TwBlogLayout>
       {/* posts list */}
@@ -18,8 +22,8 @@ const Post: NextPage = ({
   );
 };
 
-export const getStaticProps: GetStaticProps = async () => {
-  const postList = getPostList();
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const postList = getPostList(context.query);
 
   return {
     props: {
