@@ -5,9 +5,12 @@ import type {
   InferGetStaticPropsType,
   NextPage,
 } from "next";
+import NextLink from "next/link";
 import { useEffect } from "react";
 import TwBlogLayout from "../../components/TwBlogLayout";
+import { TwBlogNavButton } from "../../components/TwBlogNav";
 import TwBlogTagsDate from "../../components/TwBlogTagsDate";
+import TwLink from "../../components/TwLink";
 import { getAllPostIds, getPostData, PostData } from "../../lib/posts";
 
 const Post: NextPage = ({
@@ -22,7 +25,7 @@ const Post: NextPage = ({
   // extract to @apply
   return (
     <TwBlogLayout>
-      <div className="mb-4 flex flex-col gap-2">
+      <div className="mb-4 flex flex-col gap-4">
         <h1 className="text-center text-3xl font-semibold">{title}</h1>
 
         <TwBlogTagsDate itemData={postData} />
@@ -42,6 +45,18 @@ const Post: NextPage = ({
         `}
         dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
       />
+
+      <div className="mt-6 flex justify-between">
+        <NextLink href="/blog" passHref>
+          <TwLink>blog</TwLink>
+        </NextLink>
+
+        <TwBlogNavButton
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        >
+          back to top
+        </TwBlogNavButton>
+      </div>
     </TwBlogLayout>
   );
 };

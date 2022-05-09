@@ -8,7 +8,7 @@ import React, {
 import staticData from "../public/static-data.json";
 import TwLink from "./TwLink";
 
-const TwButton = (
+export const TwBlogNavButton = (
   props: DetailedHTMLProps<
     ButtonHTMLAttributes<HTMLButtonElement>,
     HTMLButtonElement
@@ -35,7 +35,7 @@ const TwBlogNav = () => {
           <TwLink>blog</TwLink>
         </NextLink>
         <span>•</span>
-        <TwButton
+        <TwBlogNavButton
           onClick={() => {
             setShowTags((p) => !p);
             if (showYears) {
@@ -44,9 +44,9 @@ const TwBlogNav = () => {
           }}
         >
           tags
-        </TwButton>
+        </TwBlogNavButton>
         <span>•</span>
-        <TwButton
+        <TwBlogNavButton
           onClick={() => {
             setShowYears((p) => !p);
             if (showTags) {
@@ -55,14 +55,14 @@ const TwBlogNav = () => {
           }}
         >
           years
-        </TwButton>
+        </TwBlogNavButton>
       </div>
       {showTags || showYears ? (
         <div className="mt-4 flex flex-wrap items-center justify-center gap-1.5 px-6 text-sm leading-4">
           {showTags &&
             tags.map((tag, ind) => (
               <React.Fragment key={tag}>
-                <TwButton
+                <TwBlogNavButton
                   onClick={() => {
                     router.push(
                       {
@@ -74,14 +74,14 @@ const TwBlogNav = () => {
                   }}
                 >
                   {tag}
-                </TwButton>
+                </TwBlogNavButton>
                 {ind !== tags.length - 1 && <span>•</span>}
               </React.Fragment>
             ))}
           {showYears &&
             years.map((year, ind) => (
               <React.Fragment key={year}>
-                <TwButton
+                <TwBlogNavButton
                   onClick={() => {
                     router.push(
                       {
@@ -93,7 +93,7 @@ const TwBlogNav = () => {
                   }}
                 >
                   {year}
-                </TwButton>
+                </TwBlogNavButton>
                 {ind !== years.length - 1 && <span>•</span>}
               </React.Fragment>
             ))}
