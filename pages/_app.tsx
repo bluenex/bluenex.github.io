@@ -4,6 +4,7 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import "react-notion-x/src/styles.css";
 import SEO from "../components/SEO";
 import { ThemeProvider } from "../contexts/theme";
 import * as gtag from "../lib/gtag";

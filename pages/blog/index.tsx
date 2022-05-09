@@ -5,7 +5,7 @@ import TwBlogLayout from "../../components/TwBlogLayout";
 import TwBlogListItem from "../../components/TwBlogListItem";
 import { getPostList, PostListItem } from "../../lib/posts";
 
-const Post: NextPage = ({
+const Blog: NextPage = ({
   allPosts,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const router = useRouter();
@@ -65,4 +65,4 @@ export const getStaticProps: GetStaticProps = async (context) => {
   };
 };
 
-export default Post;
+export default Blog;

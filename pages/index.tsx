@@ -24,9 +24,9 @@ const Home = () => {
               </NextLink>
             </li>
             <li>
-              <TwLink href="https://bluenex.dev/resume" isExternal>
-                resume
-              </TwLink>
+              <NextLink href="/resume" passHref>
+                <TwLink>resume</TwLink>
+              </NextLink>
             </li>
             <li>
               <TwLink href="https://bluenex.dev/frontend-collection" isExternal>
