@@ -3,7 +3,7 @@
  * @see https://stackoverflow.com/a/65081431/4010864
  */
 
-export const GA_TRACKING_ID = "UA-93059512-1";
+export const GA_TRACKING_ID = "G-F093PPYMZP";
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
 export const pageview = (url: URL): void => {
