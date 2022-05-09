@@ -10,7 +10,7 @@ interface SEOProps {
 const BASE_URL = "https://bluenex.dev";
 const fallbacks = {
   title: "bluenex.dev",
-  description: "A personal website for a random software developer.",
+  description: "A personal website of a random software developer.",
   image: "/og-image.png",
   url: "https://bluenex.dev",
 };
