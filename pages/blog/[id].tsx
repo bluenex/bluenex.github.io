@@ -23,7 +23,7 @@ const Post: NextPage = ({
   return (
     <TwBlogLayout>
       <div className="mb-4 flex flex-col gap-2">
-        <h1 className="text-center text-3xl">{title}</h1>
+        <h1 className="text-center text-3xl font-semibold">{title}</h1>
 
         <TwBlogTagsDate itemData={postData} />
       </div>
