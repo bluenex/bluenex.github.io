@@ -1,6 +1,7 @@
 import type { GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import SEO from "../../components/SEO";
 import TwBlogLayout from "../../components/TwBlogLayout";
 import TwBlogListItem from "../../components/TwBlogListItem";
 import { getPostList, PostListItem } from "../../lib/posts";
@@ -13,8 +14,6 @@ const Blog: NextPage = ({
   const [filteredPosts, setFilteredPosts] = useState<PostListItem[]>([]);
 
   useEffect(() => {
-    console.log({ router });
-
     if (router.query.tag) {
       setFilteredPosts(
         allPosts.filter((post: PostListItem) => {
@@ -40,6 +39,12 @@ const Blog: NextPage = ({
 
   return (
     <TwBlogLayout>
+      {/* SEO for blog page */}
+      <SEO
+        title="bluenex's blog"
+        description="A personal blog of a random software developer."
+      />
+
       {/* posts list */}
       <div className="flex flex-col items-start gap-6">
         {filteredPosts.map((postItemData: PostListItem) => (
@@ -51,7 +56,7 @@ const Blog: NextPage = ({
 };
 
 /**
- * @description currently use `getStaticProps` because I want to deplot on
+ * @description currently use `getStaticProps` because I want to deploy on
  * GitHub pages. However, this will definitely drag the performance down
  * when there are a lot of posts. `getServerSideProps` is the way to go then.
  */
