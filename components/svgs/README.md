@@ -6,3 +6,4 @@ Here is a list of collections I use in my projects:
 
 - https://www.svgrepo.com/collection/popular-company-logo-icons/
 - https://www.svgrepo.com/collection/phosphor-bold-icons/
+- https://www.svgrepo.com/svg/315798/spinner-two-alt
