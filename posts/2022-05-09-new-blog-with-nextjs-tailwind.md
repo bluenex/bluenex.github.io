@@ -4,7 +4,7 @@ date: 09-05-2022 16:35
 tags: [nextjs, tailwindcss, web]
 ---
 
-It is time for a new blog post and the first ever English post! In the past few years, my work has been mostly relied on [styled-components]([https://](https://styled-components.com/)) for styling React projects I have been working on. Recently, I have got a chance to try something new (during the late recovery from COVID-19) and I picked [Chakra UI](https://chakra-ui.com/) and [Tailwind CSS](https://tailwindcss.com/). The experience so far is great but there are still many things to learn.
+It is time for a new blog post and the first ever English post! In the past few years, my work has been mostly relied on [styled-components]([https://](https://styled-components.com/)) for styling React components. Recently, I have got a chance to try something new (during the late recovery from COVID-19) and I picked [Chakra UI](https://chakra-ui.com/) and [Tailwind CSS](https://tailwindcss.com/). The experience so far is great but there are still many things to learn.
 
 I have finished a couple of small projects using Chakra UI in the past months and feel that Chakra UI is so good at providing base styles and utilities so we can focus on the other tasks at hand rather than the design. That said, the customization is fairly good, not so much constrain. However, my soon to spin off project will need to be more easily to transfer to the other team members, so I think I should try another library which is favored by a community (felt by my gut feeling 😬) and I am going with Tailwind CSS.
 
