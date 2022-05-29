@@ -1,7 +1,6 @@
-# Bluenex's personal blog
+# Bluenex's personal website
 
-This is my personal blog forked from my template https://github.com/bluenex/frontend-collection/tree/main/nextjs-ts-tailwind. This blog has no intention to be commercial nor seeking for personal benefit. I occasionally update the blog because this blog is kind of diary and personal geek note, but I don't have that many stories in my everyday life.
-That's why I choose to start blogging on Github not on mainstream blogging service site.
+This is my personal website forked from my template https://github.com/bluenex/frontend-collection/tree/main/nextjs-ts-tailwind. There is also a blog which I occasionally update as a diary and personal geek note. I am not a good storyteller but sometimes the feeling is just right.
 
 ## Tech stack
 
