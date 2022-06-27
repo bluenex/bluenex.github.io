@@ -8,6 +8,7 @@
   }
 }
 
+/* responsive embed */
 .embed-container {
   position: relative;
   padding-bottom: 56.25%;
@@ -24,4 +25,24 @@
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+/* hide notion header in resume page */
+header.notion-header {
+  display: none;
+}
+
+/* add line color for notion-hr */
+hr.notion-hr {
+  @apply border-2 border-neutral-200 dark:border-neutral-500;
+}
+
+/* change hover color for notion-link */
+a.notion-link {
+  @apply border-sky-500 text-sky-500 hover:border-sky-700 hover:text-sky-700 dark:border-sky-400 dark:text-sky-400 hover:dark:border-sky-200 hover:dark:text-sky-200;
+}
+
+/* overwrite overall darkmode */
+div.notion-app {
+  @apply bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-50;
 }
