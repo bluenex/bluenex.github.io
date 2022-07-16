@@ -30,8 +30,11 @@ const Home = () => {
               </NextLink>
             </li>
             <li>
-              <TwLink href="https://bluenex.dev/frontend-collection" isExternal>
-                frontend-collection
+              <TwLink
+                href="https://stackblitz.com/edit/bluenex-react-collection?file=src/examples/ButtonExamples.tsx"
+                isExternal
+              >
+                react-collection
               </TwLink>
             </li>
           </ul>
