@@ -49,5 +49,5 @@ Support frontmatter:
 
 ## Note
 
-Tags and years for blog's navigation are generated on running a development server (`npm run predev`) as `/public/static-data.json`. So make sure to run either `npm run dev` or `npm run predev` when adding a new post (with new tag or year).
+Tags and years for blog's navigation are generated on running a development server (`npm run predev`) as `/public/static-data.json`. So make sure to run either `npm run dev` or `npm run predev` when adding a new post (with new tag or year). This will be changed to use `getInitialProps` soon.
 
