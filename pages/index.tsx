@@ -1,10 +1,26 @@
 import NextLink from "next/link";
-import React from "react";
+import React, { Fragment } from "react";
 import TwAvatar from "../components/TwAvatar";
 import TwDarkToggle from "../components/TwDarkToggle";
 import TwFooter from "../components/TwFooter";
 import TwLayout from "../components/TwLayout";
 import TwLink from "../components/TwLink";
+
+const links = [
+  {
+    url: "/blog",
+    text: "Blog",
+  },
+  {
+    url: "https://apps.bluenex.dev",
+    text: "Apps",
+    isExternal: true,
+  },
+  {
+    url: "/resume",
+    text: "Resume",
+  },
+];
 
 const Home = () => {
   return (
@@ -18,25 +34,22 @@ const Home = () => {
 
         {/* nav */}
         <nav className="w-full px-6">
-          <ul className="mx-auto flex max-w-sm flex-col gap-2 border-b border-gray-400 pb-6 text-center">
-            <li>
-              <NextLink href="/blog" passHref>
-                <TwLink>blog</TwLink>
-              </NextLink>
-            </li>
-            <li>
-              <NextLink href="/resume" passHref>
-                <TwLink>resume</TwLink>
-              </NextLink>
-            </li>
-            <li>
-              <TwLink
-                href="https://stackblitz.com/edit/bluenex-react-collection?file=src/examples/ButtonExamples.tsx"
-                isExternal
-              >
-                react-collection
-              </TwLink>
-            </li>
+          <ul className="mx-auto flex max-w-sm flex-wrap justify-center gap-2 border-b border-gray-400 pb-6">
+            {links.map((x, ind) => (
+              <Fragment key={x.text}>
+                <li className="mx-1">
+                  {x.isExternal ? (
+                    <TwLink href={x.url} isExternal>
+                      {x.text}
+                    </TwLink>
+                  ) : (
+                    <NextLink href={x.url} passHref>
+                      <TwLink>{x.text}</TwLink>
+                    </NextLink>
+                  )}
+                </li>
+              </Fragment>
+            ))}
           </ul>
         </nav>
 
