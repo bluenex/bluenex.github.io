@@ -1,6 +1,6 @@
 # Bluenex's personal website
 
-This is my personal website forked from my template https://github.com/bluenex/frontend-collection/tree/main/nextjs-ts-tailwind. There is also a blog which I occasionally update as a diary and personal geek note. I am not a good storyteller but sometimes the feeling is just right.
+This is my personal website forked from my template https://github.com/bluenex/nextjs-template/tree/main/with-ts-tailwind. There is also a blog which I occasionally update as a diary and personal geek note. I am not a good storyteller but sometimes the feeling is just right.
 
 ## Tech stack
 
@@ -24,14 +24,18 @@ npm run dev
 npm run export
 ```
 
-Currently deploy on GitHub Pages, check [main.yml](.github/workflows/main.yml) for more information.
+Currently deploy on Cloudflare Pages as a static site and can be accessed at https://bluenex.dev.
+
+### Known issues
+
+- Tried Next SSR build on Cloudflare Pages and it still doesn't work as expect. Root page is working properly but other pages go 404. Will try again next time.
 
 ## Add a blog post
 
 A new post can be added in `/posts` directory with a file name format:
 
 ```txt
-{year}-{month}-{date}-{tile-as-kebab-case}.md
+{year}-{month}-{date}-{title-as-kebab-case}.md
 ```
 
  > *[kebab-case](https://en.wiktionary.org/wiki/kebab_case)
