@@ -1,7 +1,7 @@
 ---
 title: บันทึกการแก้ไขสไตล์ของ Jekyll theme
 date: 02-03-2017 13:00
-tags: [note, jekyll]
+tags: [jekyll]
 ---
 
 เมื่อสองสามวันมานี้ได้เข้าไปวุ่นวายกับ `css` ของ [tupleblog](https://tupleblog.github.io/) นิดหน่อยเลยมาบันทึกไว้

@@ -12,7 +12,7 @@ Use `merge` when you are not sure why you want to `rebase`.
 
 ## Longer answer
 
-There are no strict rules about this and it is more like a convention or agreement in between the team you are working with. Here is a summary of what they do differently.
+There are no strict rules about this and it is more of a convention or agreement in between the team you are working with. Here is a summary of what they do differently.
 
 ### Merge
 
