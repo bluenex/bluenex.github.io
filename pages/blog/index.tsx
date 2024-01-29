@@ -58,11 +58,6 @@ const Blog: NextPage = ({
   );
 };
 
-/**
- * @description currently use `getStaticProps` because I want to deploy on
- * GitHub pages. However, this will definitely drag the performance down
- * when there are a lot of posts. `getServerSideProps` is the way to go then.
- */
 export const getStaticProps: GetStaticProps = async (context) => {
   const allPosts = getPostList();
   const { tags, years } = getAllTagsAndYears();
