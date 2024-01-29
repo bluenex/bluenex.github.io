@@ -29,7 +29,7 @@ const TwBlogTagsDate = ({ itemData }: { itemData: PostListItem }) => {
             })
             .reduce<ReactNode>(
               (prev, curr) => (prev ? [prev, ", ", curr] : [curr]),
-              undefined
+              undefined,
             )}
         </div>
       ) : (

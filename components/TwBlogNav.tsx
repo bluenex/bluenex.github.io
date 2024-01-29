@@ -1,32 +1,20 @@
 import NextLink from "next/link";
 import { useRouter } from "next/router";
-import React, {
-  ButtonHTMLAttributes,
-  DetailedHTMLProps,
-  useState,
-} from "react";
-import staticData from "../public/static-data.json";
+import React, { ComponentProps, useState } from "react";
 import TwLink from "./TwLink";
 
-export const TwBlogNavButton = (
-  props: DetailedHTMLProps<
-    ButtonHTMLAttributes<HTMLButtonElement>,
-    HTMLButtonElement
-  >
-) => (
+export const TwBlogNavButton = (props: ComponentProps<"button">) => (
   <button
     className="text-sky-500 hover:text-sky-700 dark:text-sky-400 hover:dark:text-sky-200"
     {...props}
   />
 );
 
-const TwBlogNav = () => {
+const TwBlogNav = ({ tags, years }: { tags: string[]; years: string[] }) => {
   const router = useRouter();
 
   const [showTags, setShowTags] = useState<boolean>(false);
   const [showYears, setShowYears] = useState<boolean>(false);
-
-  const { tags, years } = staticData;
 
   return (
     <nav className="mb-4 flex flex-col">
@@ -69,7 +57,7 @@ const TwBlogNav = () => {
                         pathname: "/blog",
                         query: { tag },
                       },
-                      undefined
+                      undefined,
                     );
                   }}
                 >
@@ -88,7 +76,7 @@ const TwBlogNav = () => {
                         pathname: "/blog",
                         query: { year },
                       },
-                      undefined
+                      undefined,
                     );
                   }}
                 >

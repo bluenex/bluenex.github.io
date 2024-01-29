@@ -1,8 +1,6 @@
-import { DetailedHTMLProps, HTMLAttributes } from "react";
+import { ComponentProps } from "react";
 
-const TwLayout = (
-  props: DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
-) => {
+const TwLayout = (props: ComponentProps<"div">) => {
   const { className = "", ...restProps } = props;
 
   return (

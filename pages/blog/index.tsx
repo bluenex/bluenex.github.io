@@ -4,10 +4,13 @@ import { useEffect, useState } from "react";
 import SEO from "../../components/SEO";
 import TwBlogLayout from "../../components/TwBlogLayout";
 import TwBlogListItem from "../../components/TwBlogListItem";
-import { getPostList, PostListItem } from "../../lib/posts";
+import { getAllTagsAndYears } from "../../lib/blog";
+import { PostListItem, getPostList } from "../../lib/posts";
 
 const Blog: NextPage = ({
   allPosts,
+  tags,
+  years,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const router = useRouter();
 
@@ -18,7 +21,7 @@ const Blog: NextPage = ({
       setFilteredPosts(
         allPosts.filter((post: PostListItem) => {
           return post.tags?.includes(router.query.tag as string);
-        })
+        }),
       );
       return;
     }
@@ -27,7 +30,7 @@ const Blog: NextPage = ({
       setFilteredPosts(
         allPosts.filter((post: PostListItem) => {
           return post.year?.includes(router.query.year as string);
-        })
+        }),
       );
       return;
     }
@@ -38,7 +41,7 @@ const Blog: NextPage = ({
   }, [allPosts, router]);
 
   return (
-    <TwBlogLayout>
+    <TwBlogLayout tags={tags} years={years}>
       {/* SEO for blog page */}
       <SEO
         title="bluenex's blog"
@@ -62,10 +65,13 @@ const Blog: NextPage = ({
  */
 export const getStaticProps: GetStaticProps = async (context) => {
   const allPosts = getPostList();
+  const { tags, years } = getAllTagsAndYears();
 
   return {
     props: {
       allPosts,
+      tags,
+      years,
     },
   };
 };

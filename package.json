@@ -7,9 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "export": "next build && next export",
-    "predev": "node lib/predev.js",
-    "preexport": "node lib/predev.js"
+    "export": "next build && next export"
   },
   "dependencies": {
     "@fontsource/bai-jamjuree": "^5.0.8",

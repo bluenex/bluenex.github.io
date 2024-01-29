@@ -1,5 +1,5 @@
 import NextLink from "next/link";
-import { DetailedHTMLProps, HTMLAttributes } from "react";
+import { ComponentProps } from "react";
 import TwAvatar from "./TwAvatar";
 import TwBlogNav from "./TwBlogNav";
 import TwDarkToggle from "./TwDarkToggle";
@@ -8,9 +8,9 @@ import TwLayout from "./TwLayout";
 import TwLink from "./TwLink";
 
 const TwBlogLayout = (
-  props: DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
+  props: ComponentProps<"div"> & { tags: string[]; years: string[] },
 ) => {
-  const { children, ...restProps } = props;
+  const { tags, years, children, ...restProps } = props;
 
   return (
     <TwLayout {...restProps}>
@@ -29,7 +29,7 @@ const TwBlogLayout = (
           </div>
 
           {/* blog nav */}
-          <TwBlogNav />
+          <TwBlogNav tags={tags} years={years} />
 
           {/* blog content */}
           {children}

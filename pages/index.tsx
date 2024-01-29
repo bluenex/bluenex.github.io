@@ -25,9 +25,9 @@ const links = [
 const Home = () => {
   return (
     <TwLayout className="py-6">
-      <div className="container relative mx-auto flex flex-col items-center gap-6 py-12 px-6 sm:max-w-xl">
+      <div className="container relative mx-auto flex flex-col items-center gap-6 px-6 py-12 sm:max-w-xl">
         {/* dark mode toggle */}
-        <TwDarkToggle className="absolute top-4 right-4" />
+        <TwDarkToggle className="absolute right-4 top-4" />
 
         {/* avatar */}
         <TwAvatar className="h-36 w-36" />

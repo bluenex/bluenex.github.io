@@ -1,14 +1,12 @@
 import NextLink from "next/link";
-import { DetailedHTMLProps, HTMLAttributes } from "react";
+import { ComponentProps } from "react";
 import TwAvatar from "./TwAvatar";
 import TwDarkToggle from "./TwDarkToggle";
 import TwFooter from "./TwFooter";
 import TwLayout from "./TwLayout";
 import TwLink from "./TwLink";
 
-const TwResumeLayout = (
-  props: DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
-) => {
+const TwResumeLayout = (props: ComponentProps<"div">) => {
   const { children, ...restProps } = props;
 
   return (

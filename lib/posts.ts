@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import { readFileSync } from "fs";
 import { glob } from "glob";
 import matter from "gray-matter";
@@ -31,8 +32,8 @@ const firstParagraphAsExcerpt = (f: { content: string; excerpt: string }) => {
 
   const links = Array.from(
     f.excerpt?.matchAll(
-      /(\[((?:\[[^\]]*\]|[^\[\]])*)\]\([ \t]*()<?((?:\([^)]*\)|[^()\s])*?)>?[ \t]*((['"])(.*?)\6[ \t]*)?\))/g
-    ) || []
+      /(\[((?:\[[^\]]*\]|[^\[\]])*)\]\([ \t]*()<?((?:\([^)]*\)|[^()\s])*?)>?[ \t]*((['"])(.*?)\6[ \t]*)?\))/g,
+    ) || [],
   );
 
   if (links.length > 0) {
@@ -88,7 +89,12 @@ export function getPostList(): PostListItem[] {
     };
   });
 
-  return postList.reverse();
+  return postList.sort((a, b) => {
+    return (
+      dayjs(b.date, "DD-MM-YYYY HH:mm").unix() -
+      dayjs(a.date, "DD-MM-YYYY HH:mm").unix()
+    );
+  });
 }
 
 export async function getPostData(id: string): Promise<PostData> {
