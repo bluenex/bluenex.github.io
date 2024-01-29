@@ -22,7 +22,7 @@ const TwBlogTagsDate = ({ itemData }: { itemData: PostListItem }) => {
           {tags
             .map((tag) => {
               return (
-                <NextLink href={`/blog?tag=${tag}`} key={tag} passHref>
+                <NextLink href={`/blog?tag=${tag}`} key={tag}>
                   <TwLink>{tag}</TwLink>
                 </NextLink>
               );

@@ -39,11 +39,11 @@ const Home = () => {
               <Fragment key={x.text}>
                 <li className="mx-1">
                   {x.isExternal ? (
-                    <TwLink href={x.url} isExternal>
+                    <TwLink href={x.url} asExternalLink>
                       {x.text}
                     </TwLink>
                   ) : (
-                    <NextLink href={x.url} passHref>
+                    <NextLink href={x.url}>
                       <TwLink>{x.text}</TwLink>
                     </NextLink>
                   )}
@@ -58,7 +58,9 @@ const Home = () => {
           <div className="mb-10 indent-4">
             <p className="mb-2">
               Hi, my name is Tulakan Ruangrong (
-              <TwLink href="https://github.com/bluenex">@bluenex</TwLink>
+              <TwLink href="https://github.com/bluenex" asExternalLink>
+                @bluenex
+              </TwLink>
               ), a software developer based in Bangkok, Thailand.
             </p>
             <p>

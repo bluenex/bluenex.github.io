@@ -31,7 +31,7 @@ const TwBlogNav = () => {
   return (
     <nav className="mb-4 flex flex-col">
       <div className="flex justify-center gap-2">
-        <NextLink href="/blog" passHref>
+        <NextLink href="/blog">
           <TwLink>blog</TwLink>
         </NextLink>
         <span>•</span>

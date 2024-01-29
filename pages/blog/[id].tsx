@@ -54,7 +54,7 @@ const Post: NextPage = ({
 
       {/* bottom navigation */}
       <div className="mt-6 flex justify-between">
-        <NextLink href="/blog" passHref>
+        <NextLink href="/blog">
           <TwLink>blog</TwLink>
         </NextLink>
 
