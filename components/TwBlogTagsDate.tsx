@@ -22,14 +22,14 @@ const TwBlogTagsDate = ({ itemData }: { itemData: PostListItem }) => {
           {tags
             .map((tag) => {
               return (
-                <NextLink href={`/blog?tag=${tag}`} key={tag} passHref>
+                <NextLink href={`/blog?tag=${tag}`} key={tag}>
                   <TwLink>{tag}</TwLink>
                 </NextLink>
               );
             })
             .reduce<ReactNode>(
               (prev, curr) => (prev ? [prev, ", ", curr] : [curr]),
-              undefined
+              undefined,
             )}
         </div>
       ) : (

@@ -7,12 +7,14 @@ const TwFooter = () => {
       <TwLink
         href="https://github.com/bluenex"
         className="hover:scale-110 hover:duration-200"
+        asExternalLink
       >
         <Svgs.GitHub className="h-8 w-8 fill-gray-600 dark:fill-gray-300" />
       </TwLink>
       <TwLink
         href="https://twitter.com/tulakann"
         className="hover:scale-110 hover:duration-200"
+        asExternalLink
       >
         <Svgs.Twitter className="h-8 w-8 fill-gray-600 dark:fill-gray-300" />
       </TwLink>

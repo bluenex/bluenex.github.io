@@ -12,10 +12,13 @@ import TwBlogLayout from "../../components/TwBlogLayout";
 import { TwBlogNavButton } from "../../components/TwBlogNav";
 import TwBlogTagsDate from "../../components/TwBlogTagsDate";
 import TwLink from "../../components/TwLink";
-import { getAllPostIds, getPostData, PostData } from "../../lib/posts";
+import { getAllTagsAndYears } from "../../lib/blog";
+import { PostData, getAllPostIds, getPostData } from "../../lib/posts";
 
 const Post: NextPage = ({
   postData,
+  tags,
+  years,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { title, excerpt } = postData as PostData;
 
@@ -25,7 +28,7 @@ const Post: NextPage = ({
 
   // extract to @apply
   return (
-    <TwBlogLayout>
+    <TwBlogLayout tags={tags} years={years}>
       {/* SEO for blog details */}
       <SEO title={title} description={excerpt} />
 
@@ -40,12 +43,12 @@ const Post: NextPage = ({
       <article
         className={`
           prose
-          prose-a:text-sky-500 prose-a:underline prose-a:underline-offset-2 hover:prose-a:text-sky-700
-          prose-blockquote:border-sky-500 prose-blockquote:bg-sky-100 prose-blockquote:py-0.5 prose-blockquote:not-italic
-          prose-pre:border-2 prose-pre:border-gray-500 prose-pre:p-0
+          dark:prose-invert prose-a:text-sky-500 prose-a:underline prose-a:underline-offset-2
+          hover:prose-a:text-sky-700 prose-blockquote:border-sky-500 prose-blockquote:bg-sky-100 prose-blockquote:py-0.5
+          prose-blockquote:not-italic prose-pre:border-2 prose-pre:border-gray-500
+          prose-pre:p-0
           prose-li:leading-6
           prose-img:mx-auto
-          dark:prose-invert
           prose-a:dark:text-sky-400 hover:prose-a:dark:text-sky-200
           prose-blockquote:dark:text-gray-800
         `}
@@ -54,7 +57,7 @@ const Post: NextPage = ({
 
       {/* bottom navigation */}
       <div className="mt-6 flex justify-between">
-        <NextLink href="/blog" passHref>
+        <NextLink href="/blog">
           <TwLink>blog</TwLink>
         </NextLink>
 
@@ -83,10 +86,13 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const { id } = params;
   const postData: PostData = await getPostData(id as string);
+  const { tags, years } = getAllTagsAndYears();
 
   return {
     props: {
       postData,
+      tags,
+      years,
     },
   };
 };
