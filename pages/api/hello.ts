@@ -1,14 +1,11 @@
-import type { NextApiRequest, NextApiResponse } from "next";
+import { NextApiRequest } from "next";
 
-type Data = {
-  name: string;
-};
+export default function handler(req: NextApiRequest) {
+  if (req.method !== "GET") {
+    return new Response("Method Not Allowed", { status: 405 });
+  }
 
-export default function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<Data>,
-) {
-  res.status(200).json({ name: "John Doe" });
+  return new Response(JSON.stringify({ message: "hello world!" }));
 }
 
 export const runtime = "edge";
