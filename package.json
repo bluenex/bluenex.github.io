@@ -7,7 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "export": "next build && next export"
+    "export": "next build && next export",
+    "cf:testbuild": "npx @cloudflare/next-on-pages@1",
+    "cf:testserve": "npx wrangler pages dev .vercel/output/static",
+    "cf:preview": "npm run cf:testbuild && npm run cf:testserve"
   },
   "dependencies": {
     "@fontsource/bai-jamjuree": "^5.0.8",
