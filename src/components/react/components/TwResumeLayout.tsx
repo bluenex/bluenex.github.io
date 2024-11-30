@@ -1,6 +1,5 @@
 import { type ComponentProps } from "react";
 import TwAvatar from "./TwAvatar";
-import TwDarkToggle from "./TwDarkToggle";
 import TwFooter from "./TwFooter";
 import TwLayout from "./TwLayout";
 import TwLink from "./TwLink";
@@ -21,8 +20,6 @@ const TwResumeLayout = (props: ComponentProps<"div">) => {
               <TwAvatar className="h-12 w-12" />
               <span className="text-xl">bluenex</span>
             </TwLink>
-
-            <TwDarkToggle />
           </div>
         </div>
 
