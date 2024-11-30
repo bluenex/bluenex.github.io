@@ -3,7 +3,7 @@ import "dayjs/locale/th";
 import buddhistEra from "dayjs/plugin/buddhistEra";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 import { type ReactNode } from "react";
-import { type PostListItem } from "../../lib/posts";
+import { type PostListItem } from "../../../lib/posts";
 import TwLink from "./TwLink";
 
 dayjs.extend(buddhistEra);

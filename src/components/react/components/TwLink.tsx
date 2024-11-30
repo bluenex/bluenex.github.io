@@ -1,20 +1,12 @@
 import { forwardRef, type Ref } from "react";
 import { twMerge } from "tailwind-merge";
 
-type AsExternalLink = {
-  asExternalLink?: true;
+type Props = {
+  asExternalLink?: boolean;
   href?: string;
   className?: string;
   children: React.ReactNode;
 };
-type AsInternal = {
-  asExternalLink?: false;
-  href?: never;
-  className?: string;
-  children: React.ReactNode;
-};
-
-type Props = AsExternalLink | AsInternal;
 
 /**
  * @description TwLink is a component that wraps around <a> tag.
@@ -24,35 +16,21 @@ const TwLink = forwardRef(
   (props: Props, ref: Ref<HTMLAnchorElement> | undefined) => {
     const { children, className, href, asExternalLink = false } = props;
 
-    if (asExternalLink) {
-      return (
-        <a
-          ref={ref}
-          href={href}
-          className={twMerge(
-            !className &&
-              "text-sky-500 underline underline-offset-2 hover:text-sky-700 dark:text-sky-400 hover:dark:text-sky-200",
-            className && className,
-          )}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {children}
-        </a>
-      );
-    }
-
     return (
-      <span
+      <a
         ref={ref}
+        href={href}
         className={twMerge(
-          !className &&
+          className ||
             "text-sky-500 underline underline-offset-2 hover:text-sky-700 dark:text-sky-400 hover:dark:text-sky-200",
-          className && className,
         )}
+        {...(asExternalLink && {
+          target: "_blank",
+          rel: "noopener noreferrer",
+        })}
       >
         {children}
-      </span>
+      </a>
     );
   },
 );

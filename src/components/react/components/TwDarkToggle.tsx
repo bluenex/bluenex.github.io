@@ -1,6 +1,6 @@
 import { type DetailedHTMLProps, type HTMLAttributes } from "react";
 // import { ThemeContext } from "../contexts/theme";
-import Svgs from "./svgs";
+import Svgs from "../svgs";
 
 const TwDarkToggle = (
   props: DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>,

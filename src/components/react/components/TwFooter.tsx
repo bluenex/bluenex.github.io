@@ -1,4 +1,4 @@
-import Svgs from "./svgs";
+import Svgs from "../svgs";
 import TwLink from "./TwLink";
 
 const TwFooter = () => {

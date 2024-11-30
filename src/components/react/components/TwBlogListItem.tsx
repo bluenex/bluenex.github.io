@@ -1,4 +1,4 @@
-import type { PostListItem } from "../../lib/posts";
+import type { PostListItem } from "../../../lib/posts";
 import TwBlogTagsDate from "./TwBlogTagsDate";
 import TwLink from "./TwLink";
 
