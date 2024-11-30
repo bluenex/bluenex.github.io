@@ -1,6 +1,7 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
 import Home from "../components/react/pages/home";
+import ThemeButton from "../components/ThemeButton.astro";
 ---
 
 <!doctype html>
@@ -9,6 +10,10 @@ import Home from "../components/react/pages/home";
     <BaseHead />
   </head>
   <body>
+    <div class="container relative mx-auto sm:max-w-xl">
+      <ThemeButton class="absolute right-4 top-10 z-10" />
+    </div>
+
     <Home client:load />
   </body>
 </html>

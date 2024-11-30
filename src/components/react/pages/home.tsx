@@ -1,6 +1,5 @@
 import { Fragment } from "react";
 import TwAvatar from "../components/TwAvatar";
-import TwDarkToggle from "../components/TwDarkToggle";
 import TwFooter from "../components/TwFooter";
 import TwLayout from "../components/TwLayout";
 import TwLink from "../components/TwLink";
@@ -25,9 +24,6 @@ const Home = () => {
   return (
     <TwLayout className="py-6">
       <div className="container relative mx-auto flex flex-col items-center gap-6 px-6 py-12 sm:max-w-xl">
-        {/* dark mode toggle */}
-        <TwDarkToggle className="absolute right-4 top-4" />
-
         {/* avatar */}
         <TwAvatar className="h-36 w-36" />
 
@@ -55,6 +51,12 @@ const Home = () => {
                 @bluenex
               </TwLink>
               ), a software developer based in Bangkok, Thailand.
+            </p>
+
+            <p>
+              I started my journey in Zoology and Biomedical Engineering, and
+              now I'm focused on solving problems, fostering collaboration, and
+              continuously learning in the world of tech.
             </p>
           </div>
 
