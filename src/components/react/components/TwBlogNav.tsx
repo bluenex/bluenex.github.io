@@ -1,18 +1,29 @@
-import React, { type ComponentProps, useState } from "react";
+import React, { type ComponentProps, useEffect, useState } from "react";
 import TwLink from "./TwLink";
+import { useQueryState } from "nuqs";
+import { twMerge } from "tailwind-merge";
 
-export const TwBlogNavButton = (props: ComponentProps<"button">) => (
+export const TwBlogNavButton = ({
+  className,
+  selected,
+  ...restProps
+}: ComponentProps<"button"> & { selected?: boolean }) => (
   <button
-    className="text-sky-500 hover:text-sky-700 dark:text-sky-400 hover:dark:text-sky-200"
-    {...props}
+    {...restProps}
+    className={twMerge(
+      "text-sky-500 hover:text-sky-700 dark:text-sky-400 hover:dark:text-sky-200",
+      className,
+      selected && "underline underline-offset-2 font-semibold",
+    )}
   />
 );
 
 const TwBlogNav = ({ tags, years }: { tags: string[]; years: string[] }) => {
-  // const router = useRouter();
-
   const [showTags, setShowTags] = useState<boolean>(false);
   const [showYears, setShowYears] = useState<boolean>(false);
+
+  const [selectedTag, setSelectedTag] = useQueryState("tag");
+  const [selectedYear, setSelectedYear] = useQueryState("year");
 
   return (
     <nav className="mb-4 flex flex-col">
@@ -27,6 +38,7 @@ const TwBlogNav = ({ tags, years }: { tags: string[]; years: string[] }) => {
               setShowYears(false);
             }
           }}
+          selected={showTags}
         >
           tags
         </TwBlogNavButton>
@@ -38,6 +50,7 @@ const TwBlogNav = ({ tags, years }: { tags: string[]; years: string[] }) => {
               setShowTags(false);
             }
           }}
+          selected={showYears}
         >
           years
         </TwBlogNavButton>
@@ -49,15 +62,9 @@ const TwBlogNav = ({ tags, years }: { tags: string[]; years: string[] }) => {
               <React.Fragment key={tag}>
                 <TwBlogNavButton
                   onClick={() => {
-                    // TODO: implement this
-                    // router.push(
-                    //   {
-                    //     pathname: "/blog",
-                    //     query: { tag },
-                    //   },
-                    //   undefined,
-                    // );
+                    setSelectedTag((old) => (tag === old ? null : tag));
                   }}
+                  selected={selectedTag === tag}
                 >
                   {tag}
                 </TwBlogNavButton>
@@ -69,15 +76,9 @@ const TwBlogNav = ({ tags, years }: { tags: string[]; years: string[] }) => {
               <React.Fragment key={year}>
                 <TwBlogNavButton
                   onClick={() => {
-                    // TODO: implement this
-                    // router.push(
-                    //   {
-                    //     pathname: "/blog",
-                    //     query: { year },
-                    //   },
-                    //   undefined,
-                    // );
+                    setSelectedYear((old) => (year === old ? null : year));
                   }}
+                  selected={selectedYear === year}
                 >
                   {year}
                 </TwBlogNavButton>
