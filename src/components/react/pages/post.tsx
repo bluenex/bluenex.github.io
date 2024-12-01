@@ -1,4 +1,5 @@
 import hljs from "highlight.js";
+import "highlight.js/styles/github-dark-dimmed.css";
 import { NuqsAdapter } from "nuqs/adapters/react";
 import { useEffect } from "react";
 import type { PostData } from "../../../libs/posts";
