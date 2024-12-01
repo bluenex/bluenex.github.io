@@ -62,7 +62,12 @@ const TwBlogNav = ({ tags, years }: { tags: string[]; years: string[] }) => {
               <React.Fragment key={tag}>
                 <TwBlogNavButton
                   onClick={() => {
-                    setSelectedTag((old) => (tag === old ? null : tag));
+                    // more interactiveness on the blog page
+                    if (window.location.pathname === "/blog") {
+                      setSelectedTag((old) => (tag === old ? null : tag));
+                    } else {
+                      window.location.href = `/blog?tag=${tag}`;
+                    }
                   }}
                   selected={selectedTag === tag}
                 >
@@ -76,7 +81,12 @@ const TwBlogNav = ({ tags, years }: { tags: string[]; years: string[] }) => {
               <React.Fragment key={year}>
                 <TwBlogNavButton
                   onClick={() => {
-                    setSelectedYear((old) => (year === old ? null : year));
+                    // more interactiveness on the blog page
+                    if (window.location.pathname === "/blog") {
+                      setSelectedYear((old) => (year === old ? null : year));
+                    } else {
+                      window.location.href = `/blog?year=${year}`;
+                    }
                   }}
                   selected={selectedYear === year}
                 >

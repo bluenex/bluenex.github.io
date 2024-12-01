@@ -1,0 +1,35 @@
+---
+import BaseHead from "../../components/BaseHead.astro";
+import ThemeButton from "../../components/ThemeButton.astro";
+import Post from "../../components/react/pages/post";
+import { getAllTagsAndYears } from "../../libs/blog";
+import { getAllPostIds, getPostData } from "../../libs/posts";
+
+export async function getStaticPaths() {
+  const paths = getAllPostIds();
+  return await Promise.all(
+    paths.map(async (path) => ({
+      ...path,
+      props: await getPostData(path.params.id),
+    })),
+  );
+}
+
+const { tags, years } = getAllTagsAndYears();
+
+const post = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={post.title} description={post.excerpt} />
+  </head>
+  <body>
+    <div class="container relative mx-auto md:max-w-2xl">
+      <ThemeButton class="absolute right-0 top-8 z-10" />
+    </div>
+
+    <Post postData={post} tags={tags} years={years} client:load />
+  </body>
+</html>
