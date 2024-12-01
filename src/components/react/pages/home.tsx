@@ -10,13 +10,13 @@ const links = [
     text: "Blog",
   },
   {
+    url: "/resume",
+    text: "Resume",
+  },
+  {
     url: "https://apps.bluenex.dev",
     text: "Apps",
     isExternal: true,
-  },
-  {
-    url: "/resume",
-    text: "Resume",
   },
 ];
 
