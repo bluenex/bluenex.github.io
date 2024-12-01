@@ -1,5 +1,4 @@
 // @ts-check
-import cloudflare from "@astrojs/cloudflare";
 import mdx from "@astrojs/mdx";
 import partytown from "@astrojs/partytown";
 import react from "@astrojs/react";
@@ -22,7 +21,4 @@ export default defineConfig({
       },
     }),
   ],
-
-  output: "hybrid",
-  adapter: cloudflare(),
 });
