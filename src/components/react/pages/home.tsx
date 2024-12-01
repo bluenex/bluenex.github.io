@@ -30,7 +30,7 @@ const Home = () => {
         {/* nav */}
         <nav className="w-full px-6">
           <ul className="mx-auto flex max-w-sm flex-wrap justify-center gap-2 border-b border-gray-400 pb-6">
-            {links.map((x, ind) => (
+            {links.map((x) => (
               <Fragment key={x.text}>
                 <li className="mx-1">
                   <TwLink href={x.url} asExternalLink={x.isExternal}>

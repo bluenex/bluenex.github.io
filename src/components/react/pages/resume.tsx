@@ -1,9 +1,8 @@
 import type { ExtendedRecordMap } from "notion-types";
 import { NotionRenderer } from "react-notion-x";
 import TwResumeLayout from "../components/TwResumeLayout";
-
+import { useWatchDarkMode } from "../hooks/useWatchDarkMode";
 import "react-notion-x/src/styles.css";
-import { useWatchDarkMode } from "../hooks/useWatchDarkmode";
 
 type ResumeProps = {
   recordMap: ExtendedRecordMap;

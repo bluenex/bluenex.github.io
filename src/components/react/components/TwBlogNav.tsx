@@ -1,7 +1,7 @@
-import React, { type ComponentProps, useEffect, useState } from "react";
-import TwLink from "./TwLink";
 import { useQueryState } from "nuqs";
+import React, { type ComponentProps, useState } from "react";
 import { twMerge } from "tailwind-merge";
+import TwLink from "./TwLink";
 
 export const TwBlogNavButton = ({
   className,
