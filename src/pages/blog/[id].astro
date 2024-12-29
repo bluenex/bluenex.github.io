@@ -27,7 +27,7 @@ const post = Astro.props;
   </head>
   <body>
     <div class="container relative mx-auto md:max-w-2xl">
-      <ThemeButton class="absolute right-0 top-8 z-10" />
+      <ThemeButton class="absolute right-8 top-8 z-10 md:right-0" />
     </div>
 
     <Post postData={post} tags={tags} years={years} client:load />
