@@ -2,12 +2,6 @@
 import BaseHead from "../components/BaseHead.astro";
 import ThemeButton from "../components/ThemeButton.astro";
 import TwResumeLayout from "../components/react/components/TwResumeLayout";
-
-// import { NotionAPI } from "notion-client";
-// import ResumePage from "../components/react/pages/resume";
-
-// const notion = new NotionAPI();
-// const recordMap = await notion.getPage("879d3cc457ad4a128bcae5f731ebf5c7");
 ---
 
 <!doctype html>
@@ -20,9 +14,8 @@ import TwResumeLayout from "../components/react/components/TwResumeLayout";
       <ThemeButton class="absolute right-8 top-8 z-10 md:right-0" />
     </div>
 
-    <!-- <ResumePage recordMap={recordMap} client:load /> -->
     <TwResumeLayout>
-      <div class="flex w-full flex-1">
+      <div class="flex w-full flex-1 flex-col">
         <div class="mx-auto w-full max-w-screen-md">
           <!-- embeded from Canva -->
           <div
@@ -40,6 +33,13 @@ import TwResumeLayout from "../components/react/components/TwResumeLayout";
             </iframe>
           </div>
         </div>
+
+        <button
+          class="mx-auto -mt-2 mb-10 rounded border border-gray-500 px-8 py-2 hover:bg-gray-200 active:bg-gray-300 dark:border-gray-300 dark:hover:bg-gray-700 dark:active:bg-gray-600"
+          onclick="window.open('/resume.pdf', '_blank')"
+        >
+          Download PDF
+        </button>
       </div>
     </TwResumeLayout>
   </body>
