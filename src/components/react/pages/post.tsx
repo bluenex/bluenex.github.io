@@ -22,7 +22,7 @@ const Post = ({ postData }: PostProps) => {
 
   // extract to @apply
   return (
-    <TwBlogLayout hideBlogNav={true}>
+    <TwBlogLayout hideBlogNav={true} headerLinkUrl="/blog">
       {/* title, tags, timestamp  */}
       <div className="mb-4 mt-4 flex flex-col gap-4">
         <h1 className="text-center text-3xl font-semibold">{title}</h1>
