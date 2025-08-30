@@ -1,5 +1,5 @@
+import type { PostListItem } from "@/libs/posts";
 import type { ComponentProps } from "react";
-import type { PostListItem } from "../../../libs/posts";
 import TwAvatar from "./TwAvatar";
 import TwBlogNav from "./TwBlogNav";
 import TwFooter from "./TwFooter";

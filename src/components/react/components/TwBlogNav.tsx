@@ -1,8 +1,8 @@
+import type { PostListItem } from "@/libs/posts";
+import { findLatestYearWithPosts } from "@/libs/sharedUtils";
 import { useQueryState } from "nuqs";
 import React, { type ComponentProps, useState } from "react";
 import { twMerge } from "tailwind-merge";
-import type { PostListItem } from "../../../libs/posts";
-import { findLatestYearWithPosts } from "../../../libs/sharedUtils";
 
 export const TwBlogNavButton = ({
   className,

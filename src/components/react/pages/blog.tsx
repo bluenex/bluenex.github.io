@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
-import type { PostListItem } from "../../../libs/posts";
-import TwBlogLayout from "../components/TwBlogLayout";
-import TwBlogListItem from "../components/TwBlogListItem";
+import TwBlogLayout from "@/components/react/components/TwBlogLayout";
+import TwBlogListItem from "@/components/react/components/TwBlogListItem";
+import type { PostListItem } from "@/libs/posts";
 import { useQueryState } from "nuqs";
 import { NuqsAdapter } from "nuqs/adapters/react";
+import { useEffect, useState } from "react";
 
 interface BlogProps {
   allPosts: PostListItem[];

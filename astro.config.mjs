@@ -24,4 +24,12 @@ export default defineConfig({
   ],
 
   adapter: cloudflare(),
+
+  vite: {
+    resolve: {
+      alias: {
+        "@": "/src",
+      },
+    },
+  },
 });

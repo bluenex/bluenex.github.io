@@ -1,9 +1,9 @@
 ---
-import BaseHead from "../../components/BaseHead.astro";
-import ThemeButton from "../../components/ThemeButton.astro";
-import Post from "../../components/react/pages/post";
-import { getAllTagsAndYears } from "../../libs/blog";
-import { getAllPostIds, getPostData } from "../../libs/posts";
+import BaseHead from "@/components/BaseHead.astro";
+import ThemeButton from "@/components/ThemeButton.astro";
+import Post from "@/components/react/pages/post";
+import { getAllTagsAndYears } from "@/libs/blog";
+import { getAllPostIds, getPostData, getPostList } from "@/libs/posts";
 
 export async function getStaticPaths() {
   const paths = getAllPostIds();
