@@ -1,12 +1,60 @@
 ---
-import BaseHead from "../../components/BaseHead.astro";
-import Blog from "../../components/react/pages/blog";
-import ThemeButton from "../../components/ThemeButton.astro";
-import { getAllTagsAndYears } from "../../libs/blog";
-import { getPostList } from "../../libs/posts";
+import BaseHead from "@/components/BaseHead.astro";
+import Blog from "@/components/react/pages/blog";
+import ThemeButton from "@/components/ThemeButton.astro";
+import { getAllTagsAndYears } from "@/libs/blog";
+import { getPostList } from "@/libs/posts";
+import { findLatestYearWithPosts } from "@/libs/sharedUtils";
+
+// Need SSR for this page to handle redirects properly
+export const prerender = false;
 
 const allPosts = getPostList();
 const { tags, years } = getAllTagsAndYears();
+
+// Get query parameters
+const url = new URL(Astro.request.url);
+const queryTag = url.searchParams.get("tag");
+const queryYear = url.searchParams.get("year");
+
+/**
+ * @description This is where the year query param is determined
+ * when there are no query params at all.
+ */
+if (!queryTag && !queryYear) {
+  const defaultYear = findLatestYearWithPosts(years, allPosts);
+  return Astro.redirect(`/blog?year=${defaultYear}`);
+}
+
+// Determine initial state using actual query values
+let initialYear = queryYear;
+let initialTag = queryTag;
+let showYearsInitially = false;
+let showTagsInitially = false;
+
+// Set navigation state based on what we're showing
+if (queryYear && !queryTag) {
+  showYearsInitially = true;
+} else if (queryTag && !queryYear) {
+  showTagsInitially = true;
+} else if (queryTag && queryYear) {
+  // Both are set, show years by default
+  showYearsInitially = true;
+}
+
+// Filter posts based on actual query values
+let initialFilteredPosts = allPosts;
+if (queryTag && queryYear) {
+  initialFilteredPosts = allPosts.filter(
+    (post) => post.tags?.includes(queryTag) && post.year === queryYear,
+  );
+} else if (queryTag) {
+  initialFilteredPosts = allPosts.filter((post) =>
+    post.tags?.includes(queryTag),
+  );
+} else if (queryYear) {
+  initialFilteredPosts = allPosts.filter((post) => post.year === queryYear);
+}
 ---
 
 <!doctype html>
@@ -22,6 +70,16 @@ const { tags, years } = getAllTagsAndYears();
       <ThemeButton class="absolute right-8 top-8 z-10 md:right-0" />
     </div>
 
-    <Blog allPosts={allPosts} tags={tags} years={years} client:load />
+    <Blog
+      allPosts={allPosts}
+      tags={tags}
+      years={years}
+      initialFilteredPosts={initialFilteredPosts}
+      initialYear={initialYear}
+      initialTag={initialTag}
+      showYearsInitially={showYearsInitially}
+      showTagsInitially={showTagsInitially}
+      client:load
+    />
   </body>
 </html>
