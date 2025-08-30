@@ -106,6 +106,9 @@ const TwBlogNav = ({
                         // If clicking different year, select it
                         setSelectedYear(year);
                       }
+
+                      // Clear tag selection when selecting a year
+                      setSelectedTag(null);
                     } else {
                       window.location.href = `/blog?year=${year}`;
                     }
@@ -124,9 +127,14 @@ const TwBlogNav = ({
                   onClick={() => {
                     // more interactiveness on the blog page
                     if (window.location.pathname === "/blog") {
-                      setSelectedTag((old) =>
-                        tag === (old || currentTag) ? null : tag,
-                      );
+                      const newTag =
+                        tag === (selectedTag || currentTag) ? null : tag;
+                      setSelectedTag(newTag);
+
+                      // Clear year selection when selecting a tag
+                      if (newTag !== null) {
+                        setSelectedYear(null);
+                      }
                     } else {
                       window.location.href = `/blog?tag=${tag}`;
                     }
