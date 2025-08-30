@@ -1,9 +1,9 @@
 ---
-import BaseHead from "../../components/BaseHead.astro";
-import Blog from "../../components/react/pages/blog";
-import ThemeButton from "../../components/ThemeButton.astro";
-import { getAllTagsAndYears } from "../../libs/blog";
-import { getPostList } from "../../libs/posts";
+import BaseHead from "@/components/BaseHead.astro";
+import Blog from "@/components/react/pages/blog";
+import ThemeButton from "@/components/ThemeButton.astro";
+import { getAllTagsAndYears } from "@/libs/blog";
+import { getPostList } from "@/libs/posts";
 
 const allPosts = getPostList();
 const { tags, years } = getAllTagsAndYears();

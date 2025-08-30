@@ -1,8 +1,8 @@
+import TwAvatar from "@/components/react/components/TwAvatar";
+import TwFooter from "@/components/react/components/TwFooter";
+import TwLayout from "@/components/react/components/TwLayout";
+import TwLink from "@/components/react/components/TwLink";
 import { Fragment } from "react";
-import TwAvatar from "../components/TwAvatar";
-import TwFooter from "../components/TwFooter";
-import TwLayout from "../components/TwLayout";
-import TwLink from "../components/TwLink";
 
 const links = [
   {
