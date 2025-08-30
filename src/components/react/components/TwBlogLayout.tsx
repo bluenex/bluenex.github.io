@@ -8,23 +8,25 @@ import TwLink from "./TwLink";
 
 const TwBlogLayout = (
   props: ComponentProps<"div"> & {
-    tags: string[];
-    years: string[];
-    allPosts: PostListItem[];
+    tags?: string[];
+    years?: string[];
+    allPosts?: PostListItem[];
     showYearsInitially?: boolean;
     showTagsInitially?: boolean;
     initialYear?: string | null;
     initialTag?: string | null;
+    hideBlogNav?: boolean;
   },
 ) => {
   const {
-    tags,
-    years,
-    allPosts,
+    tags = [],
+    years = [],
+    allPosts = [],
     showYearsInitially,
     showTagsInitially,
     initialYear,
     initialTag,
+    hideBlogNav = false,
     children,
     ...restProps
   } = props;
@@ -44,16 +46,18 @@ const TwBlogLayout = (
             </TwLink>
           </div>
 
-          {/* blog nav */}
-          <TwBlogNav
-            tags={tags}
-            years={years}
-            allPosts={allPosts}
-            showYearsInitially={showYearsInitially}
-            showTagsInitially={showTagsInitially}
-            initialYear={initialYear}
-            initialTag={initialTag}
-          />
+          {/* blog nav - only show if not hidden */}
+          {!hideBlogNav && (
+            <TwBlogNav
+              tags={tags}
+              years={years}
+              allPosts={allPosts}
+              showYearsInitially={showYearsInitially}
+              showTagsInitially={showTagsInitially}
+              initialYear={initialYear}
+              initialTag={initialTag}
+            />
+          )}
 
           {/* blog content */}
           {children}

@@ -2,8 +2,7 @@
 import BaseHead from "@/components/BaseHead.astro";
 import ThemeButton from "@/components/ThemeButton.astro";
 import Post from "@/components/react/pages/post";
-import { getAllTagsAndYears } from "@/libs/blog";
-import { getAllPostIds, getPostData, getPostList } from "@/libs/posts";
+import { getAllPostIds, getPostData } from "@/libs/posts";
 
 export async function getStaticPaths() {
   const paths = getAllPostIds();
@@ -14,8 +13,6 @@ export async function getStaticPaths() {
     })),
   );
 }
-
-const { tags, years } = getAllTagsAndYears();
 
 const post = Astro.props;
 ---
@@ -30,6 +27,6 @@ const post = Astro.props;
       <ThemeButton class="absolute right-8 top-8 z-10 md:right-0" />
     </div>
 
-    <Post postData={post} tags={tags} years={years} client:load />
+    <Post postData={post} client:load />
   </body>
 </html>
