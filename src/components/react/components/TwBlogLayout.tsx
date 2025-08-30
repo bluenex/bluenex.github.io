@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+import type { PostListItem } from "../../../libs/posts";
 import TwAvatar from "./TwAvatar";
 import TwBlogNav from "./TwBlogNav";
 import TwFooter from "./TwFooter";
@@ -6,9 +7,27 @@ import TwLayout from "./TwLayout";
 import TwLink from "./TwLink";
 
 const TwBlogLayout = (
-  props: ComponentProps<"div"> & { tags: string[]; years: string[] },
+  props: ComponentProps<"div"> & {
+    tags: string[];
+    years: string[];
+    allPosts: PostListItem[];
+    showYearsInitially?: boolean;
+    showTagsInitially?: boolean;
+    initialYear?: string | null;
+    initialTag?: string | null;
+  },
 ) => {
-  const { tags, years, children, ...restProps } = props;
+  const {
+    tags,
+    years,
+    allPosts,
+    showYearsInitially,
+    showTagsInitially,
+    initialYear,
+    initialTag,
+    children,
+    ...restProps
+  } = props;
 
   return (
     <TwLayout {...restProps}>
@@ -26,7 +45,15 @@ const TwBlogLayout = (
           </div>
 
           {/* blog nav */}
-          <TwBlogNav tags={tags} years={years} />
+          <TwBlogNav
+            tags={tags}
+            years={years}
+            allPosts={allPosts}
+            showYearsInitially={showYearsInitially}
+            showTagsInitially={showTagsInitially}
+            initialYear={initialYear}
+            initialTag={initialTag}
+          />
 
           {/* blog content */}
           {children}
