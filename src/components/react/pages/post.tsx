@@ -7,6 +7,7 @@ import TwBlogLayout from "../components/TwBlogLayout";
 import { TwBlogNavButton } from "../components/TwBlogNav";
 import TwBlogTagsDate from "../components/TwBlogTagsDate";
 import TwLink from "../components/TwLink";
+import { twMerge } from "tailwind-merge";
 
 interface PostProps {
   postData: PostData;
@@ -33,17 +34,19 @@ const Post = ({ postData, tags, years }: PostProps) => {
 
       {/* md content */}
       <article
-        className={`
-          prose
-          dark:prose-invert prose-a:text-sky-500 prose-a:underline prose-a:underline-offset-2
-          hover:prose-a:text-sky-700 prose-blockquote:border-sky-500 prose-blockquote:bg-sky-100 prose-blockquote:py-0.5
-          prose-blockquote:not-italic prose-pre:border-2 prose-pre:border-gray-500
-          prose-pre:p-0
-          prose-li:leading-6
-          prose-img:mx-auto
-          prose-a:dark:text-sky-400 hover:prose-a:dark:text-sky-200
-          prose-blockquote:dark:text-gray-800
-        `}
+        className={twMerge(
+          "prose",
+          "dark:prose-invert",
+          "prose-a:text-sky-500 prose-a:underline prose-a:underline-offset-2",
+          "hover:prose-a:text-sky-700",
+          "prose-blockquote:border-sky-500 prose-blockquote:bg-sky-100 prose-blockquote:py-0.5 prose-blockquote:not-italic",
+          "prose-pre:border-2 prose-pre:border-gray-500 prose-pre:p-0",
+          "prose-li:leading-6",
+          "prose-img:mx-auto",
+          "prose-a:dark:text-sky-400",
+          "hover:prose-a:dark:text-sky-200",
+          "prose-blockquote:dark:text-gray-800",
+        )}
         dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
       />
 
