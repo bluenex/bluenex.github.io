@@ -1,4 +1,4 @@
-import Svgs from "@/components/react/svgs";
+import Svgs from "../svgs";
 import TwLink from "./TwLink";
 
 const TwFooter = () => {

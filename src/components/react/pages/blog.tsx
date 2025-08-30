@@ -1,41 +1,24 @@
-import TwBlogLayout from "@/components/react/components/TwBlogLayout";
-import TwBlogListItem from "@/components/react/components/TwBlogListItem";
-import type { PostListItem } from "@/libs/posts";
+import { useEffect, useState } from "react";
+import type { PostListItem } from "../../../libs/posts";
+import TwBlogLayout from "../components/TwBlogLayout";
+import TwBlogListItem from "../components/TwBlogListItem";
 import { useQueryState } from "nuqs";
 import { NuqsAdapter } from "nuqs/adapters/react";
-import { useEffect, useState } from "react";
 
 interface BlogProps {
   allPosts: PostListItem[];
   tags: string[];
   years: string[];
-  initialFilteredPosts?: PostListItem[];
-  initialYear?: string | null;
-  initialTag?: string | null;
-  showYearsInitially?: boolean;
-  showTagsInitially?: boolean;
 }
 
-const Blog = ({
-  allPosts,
-  tags,
-  years,
-  initialFilteredPosts = allPosts,
-  initialYear = null,
-  initialTag = null,
-  showYearsInitially = false,
-  showTagsInitially = false,
-}: BlogProps) => {
-  const [filteredPosts, setFilteredPosts] =
-    useState<PostListItem[]>(initialFilteredPosts);
+const Blog = ({ allPosts, tags, years }: BlogProps) => {
+  const [filteredPosts, setFilteredPosts] = useState<PostListItem[]>([]);
   const [queryTag] = useQueryState("tag");
   const [queryYear] = useQueryState("year");
 
-  // Only update filtered posts when query params actually change from URL navigation
   useEffect(() => {
     if (!queryTag && !queryYear) {
       setFilteredPosts(allPosts);
-      return;
     }
 
     if (queryTag && queryYear) {
@@ -69,15 +52,7 @@ const Blog = ({
   }, [queryTag, queryYear, allPosts]);
 
   return (
-    <TwBlogLayout
-      tags={tags}
-      years={years}
-      allPosts={allPosts}
-      showYearsInitially={showYearsInitially}
-      showTagsInitially={showTagsInitially}
-      initialYear={initialYear}
-      initialTag={initialTag}
-    >
+    <TwBlogLayout tags={tags} years={years}>
       {/* posts list */}
       <div className="flex flex-col items-start gap-6">
         {filteredPosts.map((postItemData: PostListItem) => (
@@ -88,10 +63,10 @@ const Blog = ({
   );
 };
 
-const BlogWrapper = ({ allPosts, tags, years, ...restProps }: BlogProps) => {
+const BlogWrapper = ({ allPosts, tags, years }: BlogProps) => {
   return (
     <NuqsAdapter>
-      <Blog allPosts={allPosts} tags={tags} years={years} {...restProps} />
+      <Blog allPosts={allPosts} tags={tags} years={years} />
     </NuqsAdapter>
   );
 };
