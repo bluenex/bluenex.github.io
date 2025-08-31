@@ -11,11 +11,9 @@ import { twMerge } from "tailwind-merge";
 
 interface PostProps {
   postData: PostData;
-  tags: string[];
-  years: string[];
 }
 
-const Post = ({ postData, tags, years }: PostProps) => {
+const Post = ({ postData }: PostProps) => {
   const { title } = postData;
 
   useEffect(() => {
@@ -24,9 +22,9 @@ const Post = ({ postData, tags, years }: PostProps) => {
 
   // extract to @apply
   return (
-    <TwBlogLayout tags={tags} years={years}>
+    <TwBlogLayout hideBlogNav={true} headerLinkUrl="/blog">
       {/* title, tags, timestamp  */}
-      <div className="mb-4 flex flex-col gap-4">
+      <div className="mb-4 mt-4 flex flex-col gap-4">
         <h1 className="text-center text-3xl font-semibold">{title}</h1>
 
         <TwBlogTagsDate itemData={postData} />
@@ -64,10 +62,10 @@ const Post = ({ postData, tags, years }: PostProps) => {
   );
 };
 
-const PostWrapper = ({ postData, tags, years }: PostProps) => {
+const PostWrapper = ({ postData }: PostProps) => {
   return (
     <NuqsAdapter>
-      <Post postData={postData} tags={tags} years={years} />
+      <Post postData={postData} />
     </NuqsAdapter>
   );
 };
