@@ -134,6 +134,9 @@ const TwBlogNav = ({
                         );
                         setSelectedYear(latestYear);
                         setSelectedTag(null);
+                        // Hide tags and show years
+                        setShowYears(true);
+                        setShowTags(false);
                       } else {
                         // If clicking different tag, select it
                         setSelectedTag(tag);
