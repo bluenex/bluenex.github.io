@@ -1,3 +1,4 @@
+import type { PostListItem } from "@/libs/posts";
 import type { ComponentProps } from "react";
 import TwAvatar from "./TwAvatar";
 import TwBlogNav from "./TwBlogNav";
@@ -6,9 +7,27 @@ import TwLayout from "./TwLayout";
 import TwLink from "./TwLink";
 
 const TwBlogLayout = (
-  props: ComponentProps<"div"> & { tags: string[]; years: string[] },
+  props: ComponentProps<"div"> & {
+    tags?: string[];
+    years?: string[];
+    allPosts?: PostListItem[];
+    showYearsInitially?: boolean;
+    showTagsInitially?: boolean;
+    hideBlogNav?: boolean;
+    headerLinkUrl?: string;
+  },
 ) => {
-  const { tags, years, children, ...restProps } = props;
+  const {
+    tags = [],
+    years = [],
+    allPosts = [],
+    showYearsInitially = false,
+    showTagsInitially = false,
+    hideBlogNav = false,
+    headerLinkUrl = "/",
+    children,
+    ...restProps
+  } = props;
 
   return (
     <TwLayout {...restProps}>
@@ -17,7 +36,7 @@ const TwBlogLayout = (
           {/* header bar */}
           <div className="relative flex items-center justify-between">
             <TwLink
-              href="/"
+              href={headerLinkUrl}
               className="flex items-center justify-center gap-4 hover:scale-105 hover:transition-transform hover:duration-300"
             >
               <TwAvatar className="h-12 w-12" />
@@ -25,8 +44,16 @@ const TwBlogLayout = (
             </TwLink>
           </div>
 
-          {/* blog nav */}
-          <TwBlogNav tags={tags} years={years} />
+          {/* blog nav - only show if not hidden */}
+          {!hideBlogNav && (
+            <TwBlogNav
+              tags={tags}
+              years={years}
+              allPosts={allPosts}
+              showYearsInitially={showYearsInitially}
+              showTagsInitially={showTagsInitially}
+            />
+          )}
 
           {/* blog content */}
           {children}
