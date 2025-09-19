@@ -10,7 +10,7 @@ Starting with gathering ideas of what to do by discussing with LLM and then plan
 
 So I've built a simple static website with Bun + React that calls a worker to count page views and store it in Cloudflare KV. The implementation is simple but took some time to figure out how to deploy properly. Below is how it looks.
 
-![screenshot of the bun website](/public/images/bun-hit-counter.jpg)
+![screenshot of the bun website](/images/bun-hit-counter.jpg)
 
 Although not very fancy and not quite deep enough to admire the performance of Bun, at least I learned how Bun's project structure looks like, how to deploy it to Cloudflare Pages and lastly got to post this blog.
 
