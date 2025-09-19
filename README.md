@@ -15,7 +15,7 @@ Visual Studio Code with [Tailwind CSS IntelliSense](https://marketplace.visualst
 ## Dev
 
 ```sh
-npm run dev
+pnpm run dev
 ```
 
 ## Deployment
