@@ -23,7 +23,7 @@ const links = [
 const Home = () => {
   return (
     <TwLayout className="py-6">
-      <div className="container relative mx-auto flex flex-col items-center gap-6 px-6 py-12 sm:max-w-xl">
+      <div className="relative container mx-auto flex flex-col items-center gap-6 px-6 py-12 sm:max-w-xl">
         {/* avatar */}
         <TwAvatar className="h-36 w-36" />
 

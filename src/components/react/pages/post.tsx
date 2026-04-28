@@ -24,7 +24,7 @@ const Post = ({ postData }: PostProps) => {
   return (
     <TwBlogLayout hideBlogNav={true} headerLinkUrl="/blog">
       {/* title, tags, timestamp  */}
-      <div className="mb-4 mt-4 flex flex-col gap-4">
+      <div className="mt-4 mb-4 flex flex-col gap-4">
         <h1 className="text-center text-3xl font-semibold">{title}</h1>
 
         <TwBlogTagsDate itemData={postData} />
