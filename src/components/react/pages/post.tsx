@@ -32,7 +32,7 @@ const Post = ({ postData, children }: PostProps) => {
           "prose-a:text-sky-500 prose-a:underline prose-a:underline-offset-2",
           "hover:prose-a:text-sky-700",
           "prose-blockquote:border-sky-500 prose-blockquote:bg-sky-100 prose-blockquote:py-0.5 prose-blockquote:not-italic",
-          "prose-pre:border-2 prose-pre:border-gray-500 prose-pre:p-0",
+          "prose-pre:border-2 prose-pre:border-gray-500 prose-pre:p-4",
           "prose-li:leading-6",
           "prose-img:mx-auto",
           "prose-a:dark:text-sky-400",
