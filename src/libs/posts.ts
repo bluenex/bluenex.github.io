@@ -27,22 +27,23 @@ export function entryToPostListItem(
   };
 }
 
-// Thin excerpt utility: grabs the second line of the markdown body and strips
-// markdown links (same behaviour as the old gray-matter custom excerpt parser).
+// Thin excerpt utility: grabs the first line of the markdown body and strips
+// markdown links. Astro's body starts directly at the content (no leading blank
+// line), unlike gray-matter which included the blank line after the closing ---.
 export function getExcerpt(body: string | undefined): string | undefined {
   if (!body) return undefined;
-  const secondLine = body.split("\n")[1];
-  if (!secondLine?.trim()) return undefined;
+  const firstLine = body.split("\n")[0];
+  if (!firstLine?.trim()) return undefined;
 
   const links = Array.from(
-    secondLine.matchAll(
+    firstLine.matchAll(
       /(\[((?:\[[^\]]*\]|[^[\]])*)\]\([ \t]*()<?((?:\([^)]*\)|[^()\s])*?)>?[ \t]*((['"])(.*?)\6[ \t]*)?\))/g,
     ),
   );
 
-  if (links.length === 0) return secondLine;
+  if (links.length === 0) return firstLine;
 
-  let result = secondLine;
+  let result = firstLine;
   links.forEach((link) => {
     result = result.replace(link[0], link[2]);
   });
