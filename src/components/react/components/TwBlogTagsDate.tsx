@@ -1,13 +1,11 @@
 import dayjs from "dayjs";
 import "dayjs/locale/th";
 import buddhistEra from "dayjs/plugin/buddhistEra";
-import customParseFormat from "dayjs/plugin/customParseFormat";
 import type { ReactNode } from "react";
 import TwLink from "./TwLink";
 import type { PostListItem } from "@/libs/posts";
 
 dayjs.extend(buddhistEra);
-dayjs.extend(customParseFormat);
 dayjs.locale("th");
 
 const TwBlogTagsDate = ({ itemData }: { itemData: PostListItem }) => {
@@ -36,18 +34,12 @@ const TwBlogTagsDate = ({ itemData }: { itemData: PostListItem }) => {
       )}
 
       <div className="flex flex-col items-end">
-        <span
-          className="min-w-fit"
-          title={dayjs(date, "DD-MM-YYYY HH:mm").toString()}
-        >
-          {dayjs(date, "DD-MM-YYYY HH:mm").format("D MMM BB")}
+        <span className="min-w-fit" title={dayjs(date).toString()}>
+          {dayjs(date).format("D MMM BB")}
         </span>
         {modified && (
-          <span
-            className="min-w-fit"
-            title={dayjs(modified, "DD-MM-YYYY HH:mm").toString()}
-          >
-            แก้ไข: {dayjs(modified, "DD-MM-YYYY HH:mm").format("D MMM BB")}
+          <span className="min-w-fit" title={dayjs(modified).toString()}>
+            แก้ไข: {dayjs(modified).format("D MMM BB")}
           </span>
         )}
       </div>
