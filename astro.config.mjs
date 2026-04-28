@@ -10,6 +10,12 @@ import { defineConfig } from "astro/config";
 export default defineConfig({
   site: "https://bluenex.dev",
 
+  markdown: {
+    shikiConfig: {
+      theme: "github-dark-dimmed",
+    },
+  },
+
   integrations: [
     mdx(),
     sitemap(),
