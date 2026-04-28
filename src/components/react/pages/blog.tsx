@@ -80,7 +80,7 @@ const Blog = ({ allPosts, tags, years }: BlogProps) => {
       {/* posts list */}
       <div className="flex flex-col items-start gap-6">
         {filteredPosts.map((postItemData: PostListItem) => (
-          <TwBlogListItem itemData={postItemData} key={postItemData.date} />
+          <TwBlogListItem itemData={postItemData} key={postItemData.id} />
         ))}
       </div>
     </TwBlogLayout>
