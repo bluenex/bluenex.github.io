@@ -31,7 +31,7 @@
     "@types/react-dom": "^18.3.1",
     "astro": "^5.17.3",
     "dayjs": "^1.11.20",
-    "glob": "^11.0.0",
+    "glob": "^13.0.6",
     "gray-matter": "^4.0.3",
     "highlight.js": "^11.10.0",
     "nuqs": "^2.8.9",
