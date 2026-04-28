@@ -6,6 +6,8 @@ This is my personal website ported from Next.js to Astro recently (1 Dec 2024). 
 
 - **28 Apr 2026** — Upgraded Astro 5→6, React 18→19, Tailwind CSS 3→4, TypeScript 5→6. Migrated blog to Astro Content Collections (replaced `gray-matter`/`remark` custom loader with Zod schema + built-in shiki syntax highlighting).
 - **1 Dec 2024** — Ported from Next.js to Astro.
+- **7 May 2022** — Ported from Jekyll to Next.js + Tailwind CSS.
+- **Dec 2015** — Initial blog launch on Jekyll.
 
 ## Tech stack
 
