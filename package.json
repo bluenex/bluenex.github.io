@@ -28,17 +28,13 @@
     "@tailwindcss/vite": "^4.2.4",
     "astro": "^6.1.9",
     "dayjs": "^1.11.20",
-    "glob": "^13.0.6",
-    "gray-matter": "^4.0.3",
-    "highlight.js": "^11.10.0",
     "nuqs": "^2.8.9",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
-    "remark": "^15.0.1",
-    "remark-html": "^16.0.1",
     "tailwind-merge": "^3.5.0",
     "tailwindcss": "^4.2.4",
-    "typescript": "^6.0.3"
+    "typescript": "^6.0.3",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
