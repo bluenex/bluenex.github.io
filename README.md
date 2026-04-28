@@ -4,9 +4,10 @@ This is my personal website ported from Next.js to Astro recently (1 Dec 2024). 
 
 ## Tech stack
 
-- Astro
+- Astro 6
+- React 19
 - TypeScript
-- Tailwind CSS
+- Tailwind CSS 4
 
 ### Editor
 
@@ -21,10 +22,12 @@ pnpm run dev
 ## Verification
 
 ```sh
-pnpm run build        # type check + build
-pnpm run checktype    # type check only
-pnpm run format       # format with Prettier
-pnpm run format:check # check formatting without writing
+pnpm run build           # astro check + build
+pnpm run checktype       # type check only
+pnpm run lint            # lint with ESLint
+pnpm run format          # format with Prettier
+pnpm run format:check    # check formatting without writing
+pnpm run format:lintfix  # format + lint fix
 ```
 
 ## Deployment
@@ -33,7 +36,7 @@ Currently deploy on Cloudflare Pages and can be accessed at https://bluenex.dev.
 
 ## Add a blog post
 
-A new post can be added in `/content/posts` directory with a file name format:
+A new post can be added in `src/content/posts/` directory with a file name format:
 
 ```txt
 {year}-{month}-{date}-{title-as-kebab-case}.md
@@ -41,17 +44,14 @@ A new post can be added in `/content/posts` directory with a file name format:
 
 > \*[kebab-case](https://en.wiktionary.org/wiki/kebab_case)
 
-Support frontmatter:
+Supported frontmatter:
 
-```ts
-{
-  title: string;
-  date: string;
-  modified?: string;
-  tags?: string[];
-}
+```yaml
+title: string          # required
+date: YYYY-MM-DDTHH:mm # required
+modified: YYYY-MM-DDTHH:mm # optional
+tags: [tag1, tag2]     # optional
+thumbnail: string      # optional
 ```
 
-## Note
-
-I don't use Astro Content API as described in the [official documentation](https://docs.astro.build/en/guides/content/). Instead, I ported working code from Next.js to Astro and keep using parser like `gray-matter` and `remark` for markdown processing.
+Posts are loaded via Astro Content Collections (`src/content.config.ts`) with a Zod schema. Markdown is rendered at build time using Astro's built-in pipeline with shiki for syntax highlighting (`github-dark-dimmed` theme).
