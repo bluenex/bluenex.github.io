@@ -1,7 +1,7 @@
 import { readFileSync } from "fs";
+import path from "path";
 import { glob } from "glob";
 import matter from "gray-matter";
-import path from "path";
 
 const postsDirectory = path.join(process.cwd(), "src", "content", "posts");
 

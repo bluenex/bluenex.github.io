@@ -1,13 +1,13 @@
-import TwBlogLayout from "@/components/react/components/TwBlogLayout";
-import { TwBlogNavButton } from "@/components/react/components/TwBlogNav";
-import TwBlogTagsDate from "@/components/react/components/TwBlogTagsDate";
-import TwLink from "@/components/react/components/TwLink";
-import type { PostData } from "@/libs/posts";
 import hljs from "highlight.js";
 import "highlight.js/styles/github-dark-dimmed.css";
 import { NuqsAdapter } from "nuqs/adapters/react";
 import { useEffect } from "react";
 import { twMerge } from "tailwind-merge";
+import TwBlogLayout from "@/components/react/components/TwBlogLayout";
+import { TwBlogNavButton } from "@/components/react/components/TwBlogNav";
+import TwBlogTagsDate from "@/components/react/components/TwBlogTagsDate";
+import TwLink from "@/components/react/components/TwLink";
+import type { PostData } from "@/libs/posts";
 
 interface PostProps {
   postData: PostData;
@@ -24,7 +24,7 @@ const Post = ({ postData }: PostProps) => {
   return (
     <TwBlogLayout hideBlogNav={true} headerLinkUrl="/blog">
       {/* title, tags, timestamp  */}
-      <div className="mb-4 mt-4 flex flex-col gap-4">
+      <div className="mt-4 mb-4 flex flex-col gap-4">
         <h1 className="text-center text-3xl font-semibold">{title}</h1>
 
         <TwBlogTagsDate itemData={postData} />

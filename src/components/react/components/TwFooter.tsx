@@ -1,5 +1,5 @@
-import Svgs from "@/components/react/svgs";
 import TwLink from "./TwLink";
+import Svgs from "@/components/react/svgs";
 
 const TwFooter = () => {
   return (

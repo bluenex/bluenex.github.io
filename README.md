@@ -18,6 +18,15 @@ Visual Studio Code with [Tailwind CSS IntelliSense](https://marketplace.visualst
 pnpm run dev
 ```
 
+## Verification
+
+```sh
+pnpm run build        # type check + build
+pnpm run checktype    # type check only
+pnpm run format       # format with Prettier
+pnpm run format:check # check formatting without writing
+```
+
 ## Deployment
 
 Currently deploy on Cloudflare Pages and can be accessed at https://bluenex.dev.
@@ -30,7 +39,7 @@ A new post can be added in `/content/posts` directory with a file name format:
 {year}-{month}-{date}-{title-as-kebab-case}.md
 ```
 
- > *[kebab-case](https://en.wiktionary.org/wiki/kebab_case)
+> \*[kebab-case](https://en.wiktionary.org/wiki/kebab_case)
 
 Support frontmatter:
 

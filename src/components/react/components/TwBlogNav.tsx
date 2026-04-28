@@ -1,8 +1,8 @@
-import type { PostListItem } from "@/libs/posts";
-import { findLatestYearWithPosts } from "@/libs/sharedUtils";
 import { useQueryState } from "nuqs";
 import React, { type ComponentProps, useState } from "react";
 import { twMerge } from "tailwind-merge";
+import type { PostListItem } from "@/libs/posts";
+import { findLatestYearWithPosts } from "@/libs/sharedUtils";
 
 export const TwBlogNavButton = ({
   className,
@@ -41,6 +41,7 @@ const TwBlogNav = ({
   // Set default navigation state - always show years if nothing is showing
   React.useEffect(() => {
     if (!showTags && !showYears) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setShowYears(true);
     }
   }, [showTags, showYears]);

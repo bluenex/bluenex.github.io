@@ -1,8 +1,8 @@
+import { Fragment } from "react";
 import TwAvatar from "@/components/react/components/TwAvatar";
 import TwFooter from "@/components/react/components/TwFooter";
 import TwLayout from "@/components/react/components/TwLayout";
 import TwLink from "@/components/react/components/TwLink";
-import { Fragment } from "react";
 
 const links = [
   {
@@ -23,7 +23,7 @@ const links = [
 const Home = () => {
   return (
     <TwLayout className="py-6">
-      <div className="container relative mx-auto flex flex-col items-center gap-6 px-6 py-12 sm:max-w-xl">
+      <div className="relative container mx-auto flex flex-col items-center gap-6 px-6 py-12 sm:max-w-xl">
         {/* avatar */}
         <TwAvatar className="h-36 w-36" />
 

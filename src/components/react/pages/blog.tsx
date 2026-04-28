@@ -1,10 +1,10 @@
+import { useQueryState } from "nuqs";
+import { NuqsAdapter } from "nuqs/adapters/react";
+import { useEffect, useState } from "react";
 import TwBlogLayout from "@/components/react/components/TwBlogLayout";
 import TwBlogListItem from "@/components/react/components/TwBlogListItem";
 import type { PostListItem } from "@/libs/posts";
 import { findLatestYearWithPosts } from "@/libs/sharedUtils";
-import { useQueryState } from "nuqs";
-import { NuqsAdapter } from "nuqs/adapters/react";
-import { useEffect, useState } from "react";
 
 interface BlogProps {
   allPosts: PostListItem[];
@@ -15,7 +15,7 @@ interface BlogProps {
 const Blog = ({ allPosts, tags, years }: BlogProps) => {
   const [filteredPosts, setFilteredPosts] = useState<PostListItem[]>([]);
   const [isInitialized, setIsInitialized] = useState(false);
-  const [queryTag, setQueryTag] = useQueryState("tag");
+  const [queryTag] = useQueryState("tag");
   const [queryYear, setQueryYear] = useQueryState("year");
 
   // Initialize with latest year if no query params
@@ -23,6 +23,7 @@ const Blog = ({ allPosts, tags, years }: BlogProps) => {
     if (!queryTag && !queryYear && !isInitialized) {
       const latestYear = findLatestYearWithPosts(years, allPosts);
       setQueryYear(latestYear);
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsInitialized(true);
     } else if ((queryTag || queryYear) && !isInitialized) {
       setIsInitialized(true);
@@ -32,6 +33,7 @@ const Blog = ({ allPosts, tags, years }: BlogProps) => {
   // Filter posts based on query params
   useEffect(() => {
     if (!isInitialized) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setFilteredPosts([]); // Keep empty until initialized
       return;
     }
