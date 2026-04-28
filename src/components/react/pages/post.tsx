@@ -1,26 +1,20 @@
-import hljs from "highlight.js";
-import "highlight.js/styles/github-dark-dimmed.css";
 import { NuqsAdapter } from "nuqs/adapters/react";
-import { useEffect } from "react";
+import type { ReactNode } from "react";
 import { twMerge } from "tailwind-merge";
 import TwBlogLayout from "@/components/react/components/TwBlogLayout";
 import { TwBlogNavButton } from "@/components/react/components/TwBlogNav";
 import TwBlogTagsDate from "@/components/react/components/TwBlogTagsDate";
 import TwLink from "@/components/react/components/TwLink";
-import type { PostData } from "@/libs/posts";
+import type { PostListItem } from "@/libs/posts";
 
 interface PostProps {
-  postData: PostData;
+  postData: PostListItem;
+  children?: ReactNode;
 }
 
-const Post = ({ postData }: PostProps) => {
+const Post = ({ postData, children }: PostProps) => {
   const { title } = postData;
 
-  useEffect(() => {
-    hljs.highlightAll();
-  }, []);
-
-  // extract to @apply
   return (
     <TwBlogLayout hideBlogNav={true} headerLinkUrl="/blog">
       {/* title, tags, timestamp  */}
@@ -30,7 +24,7 @@ const Post = ({ postData }: PostProps) => {
         <TwBlogTagsDate itemData={postData} />
       </div>
 
-      {/* md content */}
+      {/* md content rendered via Astro's <Content /> */}
       <article
         className={twMerge(
           "prose",
@@ -45,8 +39,9 @@ const Post = ({ postData }: PostProps) => {
           "hover:prose-a:dark:text-sky-200",
           "prose-blockquote:dark:text-gray-800",
         )}
-        dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
-      />
+      >
+        {children}
+      </article>
 
       {/* bottom navigation */}
       <div className="mt-6 flex justify-between">
@@ -62,10 +57,10 @@ const Post = ({ postData }: PostProps) => {
   );
 };
 
-const PostWrapper = ({ postData }: PostProps) => {
+const PostWrapper = ({ postData, children }: PostProps) => {
   return (
     <NuqsAdapter>
-      <Post postData={postData} />
+      <Post postData={postData}>{children}</Post>
     </NuqsAdapter>
   );
 };
