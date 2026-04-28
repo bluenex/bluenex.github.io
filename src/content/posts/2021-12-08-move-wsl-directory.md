@@ -1,6 +1,6 @@
 ---
 title: บันทึกการย้าย WSL Directory
-date: 08-12-2021 12:10
+date: 2021-12-08T12:10
 tags: [wsl]
 ---
 

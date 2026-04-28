@@ -1,32 +1,36 @@
 ---
+import { getCollection, render } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 import BaseHead from "@/components/BaseHead.astro";
 import ThemeButton from "@/components/ThemeButton.astro";
 import Post from "@/components/react/pages/post";
-import { getAllPostIds, getPostData } from "@/libs/posts";
+import { entryToPostListItem } from "@/libs/posts";
 
 export async function getStaticPaths() {
-  const paths = getAllPostIds();
-  return await Promise.all(
-    paths.map(async (path) => ({
-      ...path,
-      props: await getPostData(path.params.id),
-    })),
-  );
+  const posts = await getCollection("posts");
+  return posts.map((entry) => ({
+    params: { id: entry.id },
+    props: { entry },
+  }));
 }
 
-const post = Astro.props;
+const { entry } = Astro.props as { entry: CollectionEntry<"posts"> };
+const { Content } = await render(entry);
+const postData = entryToPostListItem(entry);
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <BaseHead title={post.title} description={post.excerpt} />
+    <BaseHead title={postData.title} description={postData.excerpt} />
   </head>
   <body>
     <div class="relative container mx-auto md:max-w-2xl">
       <ThemeButton class="absolute top-8 right-8 z-10 md:right-0" />
     </div>
 
-    <Post postData={post} client:load />
+    <Post postData={postData} client:load>
+      <Content />
+    </Post>
   </body>
 </html>

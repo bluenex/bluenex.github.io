@@ -1,6 +1,6 @@
 ---
 title: Being an Adult Isn’t Easy—And That’s Okay
-date: 16-05-2025 20:05
+date: 2025-05-16T20:05
 tags: [note, life]
 ---
 
