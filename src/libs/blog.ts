@@ -1,31 +1,14 @@
-import { readFileSync } from "fs";
-import path from "path";
-import { glob } from "glob";
-import matter from "gray-matter";
+import { getCollection } from "astro:content";
 
-const postsDirectory = path.join(process.cwd(), "src", "content", "posts");
-
-export function getAllTagsAndYears() {
-  const fileNames = glob.sync(`${postsDirectory}/**/*.md`);
+export async function getAllTagsAndYears() {
+  const posts = await getCollection("posts");
   const yearsSet = new Set<string>();
   const tagsSet = new Set<string>();
 
-  fileNames.forEach((fileName) => {
-    const [id] = fileName.split("/").slice(-1);
-    const [year] = id.split("-");
-
-    // add year
+  posts.forEach((entry) => {
+    const year = entry.id.split("-")[0];
     yearsSet.add(year);
-
-    const filePath = path.join(postsDirectory, id);
-    const fileContents = readFileSync(filePath, "utf8");
-
-    const matterResult = matter(fileContents);
-
-    matterResult.data.tags.forEach((tag: string) => {
-      // add tag
-      tagsSet.add(tag);
-    });
+    entry.data.tags?.forEach((tag) => tagsSet.add(tag));
   });
 
   return {
