@@ -1,10 +1,10 @@
-import type { PostListItem } from "@/libs/posts";
 import type { ComponentProps } from "react";
 import TwAvatar from "./TwAvatar";
 import TwBlogNav from "./TwBlogNav";
 import TwFooter from "./TwFooter";
 import TwLayout from "./TwLayout";
 import TwLink from "./TwLink";
+import type { PostListItem } from "@/libs/posts";
 
 const TwBlogLayout = (
   props: ComponentProps<"div"> & {

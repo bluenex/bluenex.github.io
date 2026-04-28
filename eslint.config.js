@@ -12,6 +12,16 @@ export default tseslint.config(
   js.configs.recommended,
   ...tseslint.configs.recommended,
   ...astro.configs.recommended,
+  // Disable prettier/prettier for .astro files — prettier-plugin-astro handles formatting separately
+  {
+    files: ["**/*.astro"],
+    plugins: {
+      prettier: prettierPlugin,
+    },
+    rules: {
+      "prettier/prettier": "off",
+    },
+  },
   {
     files: ["**/*.{ts,tsx,js,jsx}"],
     plugins: {

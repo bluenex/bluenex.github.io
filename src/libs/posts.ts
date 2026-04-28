@@ -1,8 +1,8 @@
-import dayjs from "dayjs";
 import { readFileSync } from "fs";
+import path from "path";
+import dayjs from "dayjs";
 import { glob } from "glob";
 import matter from "gray-matter";
-import path from "path";
 import { remark } from "remark";
 import html from "remark-html";
 
@@ -32,7 +32,7 @@ const firstParagraphAsExcerpt = (f: { content: string; excerpt: string }) => {
 
   const links = Array.from(
     f.excerpt?.matchAll(
-      /(\[((?:\[[^\]]*\]|[^\[\]])*)\]\([ \t]*()<?((?:\([^)]*\)|[^()\s])*?)>?[ \t]*((['"])(.*?)\6[ \t]*)?\))/g,
+      /(\[((?:\[[^\]]*\]|[^[\]])*)\]\([ \t]*()<?((?:\([^)]*\)|[^()\s])*?)>?[ \t]*((['"])(.*?)\6[ \t]*)?\))/g,
     ) || [],
   );
 
@@ -77,7 +77,7 @@ export function getPostList(): PostListItem[] {
 
     const matterResult = matter(fileContents, {
       /** they have incorrect type here */
-      // @ts-ignore
+      // @ts-expect-error -- gray-matter excerpt option has incorrect type
       excerpt: firstParagraphAsExcerpt,
     });
 
@@ -105,7 +105,7 @@ export async function getPostData(id: string): Promise<PostData> {
   // use gray-matter to parse the post metadata section
   const matterResult = matter(fileContents, {
     /** they have incorrect type here */
-    // @ts-ignore
+    // @ts-expect-error -- gray-matter excerpt option has incorrect type
     excerpt: firstParagraphAsExcerpt,
   });
 

@@ -1,10 +1,10 @@
-import type { PostListItem } from "@/libs/posts";
 import dayjs from "dayjs";
 import "dayjs/locale/th";
 import buddhistEra from "dayjs/plugin/buddhistEra";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 import type { ReactNode } from "react";
 import TwLink from "./TwLink";
+import type { PostListItem } from "@/libs/posts";
 
 dayjs.extend(buddhistEra);
 dayjs.extend(customParseFormat);

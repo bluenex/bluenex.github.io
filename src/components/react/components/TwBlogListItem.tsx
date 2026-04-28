@@ -1,6 +1,6 @@
-import type { PostListItem } from "@/libs/posts";
 import TwBlogTagsDate from "./TwBlogTagsDate";
 import TwLink from "./TwLink";
+import type { PostListItem } from "@/libs/posts";
 
 const TwBlogListItem = ({ itemData }: { itemData: PostListItem }) => {
   const { id, title, excerpt } = itemData;

@@ -1,20 +1,14 @@
 import { useEffect, useState } from "react";
 
 export const useWatchDarkMode = () => {
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
-
-  // on first load
-  useEffect(() => {
-    if (
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(() => {
+    if (typeof window === "undefined") return false;
+    return (
       localStorage.theme === "dark" ||
       (!("theme" in localStorage) &&
         window.matchMedia("(prefers-color-scheme: dark)").matches)
-    ) {
-      setIsDarkMode(true);
-    } else {
-      setIsDarkMode(false);
-    }
-  }, []);
+    );
+  });
 
   // watch for changes by tracking class of <html>
   useEffect(() => {

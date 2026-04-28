@@ -1,8 +1,8 @@
-import SunDim from "./SunDim";
-import MoonStar from "./MoonStar";
 import GitHub from "./GitHub";
-import Twitter from "./Twitter";
+import MoonStar from "./MoonStar";
 import Spinner from "./Spinner";
+import SunDim from "./SunDim";
+import Twitter from "./Twitter";
 
 const Svgs = { SunDim, MoonStar, GitHub, Twitter, Spinner };
 
