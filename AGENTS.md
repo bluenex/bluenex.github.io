@@ -4,8 +4,8 @@ You are an agent assisting with the development and maintenance of this Astro-ba
 
 ## Core Mandates
 
-- **Framework:** Astro 5.x.
-- **UI & Interaction:** React 18. Use `.tsx` for interactive components and `.astro` for layouts/static components.
+- **Framework:** Astro 6.x.
+- **UI & Interaction:** React 19. Use `.tsx` for interactive components and `.astro` for layouts/static components.
 - **Styling:** Tailwind CSS. Use utility classes. Global styles are in `src/styles/global.css`.
 - **Package Manager:** `pnpm`.
 
@@ -17,8 +17,9 @@ You are an agent assisting with the development and maintenance of this Astro-ba
   - SVGs are handled as React components in `src/components/react/svgs`.
   - Astro-specific components/layouts are in `src/components`.
 - **Markdown Handling:**
-  - **CRITICAL:** Do NOT use Astro Content Collections API.
-  - The project uses custom parsing logic located in `src/libs/posts.ts` using `gray-matter` and `remark`.
+  - Posts are loaded via **Astro Content Collections** (`src/content.config.ts`).
+  - Data helpers live in `src/libs/posts.ts` (`entryToPostListItem`, `getExcerpt`).
+  - Post pages use `render(entry)` from `astro:content` and Astro's `<Content />` component for rendering.
 
 ## Blog Post Workflow
 
@@ -27,8 +28,8 @@ You are an agent assisting with the development and maintenance of this Astro-ba
 - **Frontmatter Requirements:**
   ```yaml
   title: string
-  date: "YYYY-MM-DD"
-  modified: "YYYY-MM-DD" (optional)
+  date: "YYYY-MM-DDTHH:mm"
+  modified: "YYYY-MM-DDTHH:mm" (optional)
   tags: ["tag1", "tag2"] (optional)
   ```
 
