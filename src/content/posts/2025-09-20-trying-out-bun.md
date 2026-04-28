@@ -1,6 +1,6 @@
 ---
 title: "Trying out Bun"
-date: 20-09-2025 00:34
+date: 2025-09-20T00:34
 tags: [web, bun]
 ---
 

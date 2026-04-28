@@ -1,6 +1,6 @@
 ---
 title: ทำความรู้จักกับตัวช่วยสร้าง embed link แบบ responsive
-date: 18-03-2016 19:15
+date: 2016-03-18T19:15
 tags: [web]
 ---
 

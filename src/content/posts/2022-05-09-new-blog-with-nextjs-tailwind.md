@@ -1,6 +1,6 @@
 ---
 title: "A New Website and Blog with Next.js and Tailwind CSS"
-date: 09-05-2022 16:35
+date: 2022-05-09T16:35
 tags: [nextjs, tailwindcss, web]
 ---
 

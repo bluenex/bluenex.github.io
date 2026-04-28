@@ -1,6 +1,6 @@
 ---
 title: บันทึกการแก้ไขสไตล์ของ Jekyll theme
-date: 02-03-2017 13:00
+date: 2017-03-02T13:00
 tags: [jekyll]
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Git Merge or Rebase, What to Choose?"
-date: 13-11-2022 22:09
+date: 2022-11-13T22:09
 tags: [git]
 ---
 
