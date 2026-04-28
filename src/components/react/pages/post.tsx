@@ -38,6 +38,10 @@ const Post = ({ postData, children }: PostProps) => {
           "prose-a:dark:text-sky-400",
           "hover:prose-a:dark:text-sky-200",
           "prose-blockquote:dark:text-gray-800",
+          // <astro-slot> (display:contents) is the first child of <article>, not <p>,
+          // so prose's > :first-child margin reset doesn't reach the actual content.
+          "[&>astro-slot>:first-child]:mt-0",
+          "[&>astro-slot>:last-child]:mb-0",
         )}
       >
         {children}
