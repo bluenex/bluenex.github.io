@@ -4,13 +4,13 @@ import TwBlogNav from "./TwBlogNav";
 import TwFooter from "./TwFooter";
 import TwLayout from "./TwLayout";
 import TwLink from "./TwLink";
-import type { PostListItem } from "@/libs/posts";
 
 const TwBlogLayout = (
   props: ComponentProps<"div"> & {
     tags?: string[];
     years?: string[];
-    allPosts?: PostListItem[];
+    selectedYear?: string | null;
+    selectedTag?: string | null;
     showYearsInitially?: boolean;
     showTagsInitially?: boolean;
     hideBlogNav?: boolean;
@@ -20,7 +20,8 @@ const TwBlogLayout = (
   const {
     tags = [],
     years = [],
-    allPosts = [],
+    selectedYear = null,
+    selectedTag = null,
     showYearsInitially = false,
     showTagsInitially = false,
     hideBlogNav = false,
@@ -49,7 +50,8 @@ const TwBlogLayout = (
             <TwBlogNav
               tags={tags}
               years={years}
-              allPosts={allPosts}
+              selectedYear={selectedYear}
+              selectedTag={selectedTag}
               showYearsInitially={showYearsInitially}
               showTagsInitially={showTagsInitially}
             />

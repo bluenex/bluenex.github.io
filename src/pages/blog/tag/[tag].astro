@@ -5,7 +5,13 @@ import Blog from "@/components/react/pages/blog";
 import ThemeButton from "@/components/ThemeButton.astro";
 import { getAllTagsAndYears } from "@/libs/blog";
 import { entryToPostListItem } from "@/libs/posts";
-import { findLatestYearWithPosts } from "@/libs/sharedUtils";
+
+export async function getStaticPaths() {
+  const { tags } = await getAllTagsAndYears();
+  return tags.map((tag) => ({ params: { tag } }));
+}
+
+const { tag } = Astro.params as { tag: string };
 
 const entries = await getCollection("posts");
 const allPosts = entries
@@ -13,16 +19,15 @@ const allPosts = entries
   .sort((a, b) => b.date.getTime() - a.date.getTime());
 const { tags, years } = await getAllTagsAndYears();
 
-const latestYear = findLatestYearWithPosts(years, allPosts);
-const filteredPosts = allPosts.filter((post) => post.year === latestYear);
+const filteredPosts = allPosts.filter((post) => post.tags?.includes(tag));
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <BaseHead
-      title="bluenex's blog"
-      description="A personal blog for sharing anything that piques my interest."
+      title={`bluenex's blog — #${tag}`}
+      description={`Posts tagged with #${tag}.`}
     />
   </head>
   <body>
@@ -34,8 +39,8 @@ const filteredPosts = allPosts.filter((post) => post.year === latestYear);
       filteredPosts={filteredPosts}
       tags={tags}
       years={years}
-      selectedYear={latestYear}
-      selectedTag={null}
+      selectedYear={null}
+      selectedTag={tag}
       client:load
     />
   </body>

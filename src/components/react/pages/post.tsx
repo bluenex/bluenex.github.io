@@ -1,4 +1,3 @@
-import { NuqsAdapter } from "nuqs/adapters/react";
 import type { ReactNode } from "react";
 import { twMerge } from "tailwind-merge";
 import TwBlogLayout from "@/components/react/components/TwBlogLayout";
@@ -61,12 +60,4 @@ const Post = ({ postData, children }: PostProps) => {
   );
 };
 
-const PostWrapper = ({ postData, children }: PostProps) => {
-  return (
-    <NuqsAdapter>
-      <Post postData={postData}>{children}</Post>
-    </NuqsAdapter>
-  );
-};
-
-export default PostWrapper;
+export default Post;

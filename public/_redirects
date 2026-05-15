@@ -1,0 +1,2 @@
+/blog?year=:y    /blog/year/:y    301
+/blog?tag=:t     /blog/tag/:t     301
