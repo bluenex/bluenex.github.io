@@ -28,7 +28,6 @@
     "@tailwindcss/vite": "^4.2.4",
     "astro": "^6.1.9",
     "dayjs": "^1.11.20",
-    "nuqs": "^2.8.9",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
     "tailwind-merge": "^3.5.0",
@@ -52,6 +51,11 @@
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.8.0",
     "typescript-eslint": "^8.59.1",
-    "wrangler": "^4.85.0"
+    "wrangler": "^4.91.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "workerd"
+    ]
   }
 }

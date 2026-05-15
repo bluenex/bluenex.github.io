@@ -7,22 +7,32 @@ import { getAllTagsAndYears } from "@/libs/blog";
 import { entryToPostListItem } from "@/libs/posts";
 import { findLatestYearWithPosts } from "@/libs/sharedUtils";
 
+export async function getStaticPaths() {
+  const { years } = await getAllTagsAndYears();
+  return years.map((year) => ({ params: { year } }));
+}
+
+const { year } = Astro.params as { year: string };
+
 const entries = await getCollection("posts");
 const allPosts = entries
   .map(entryToPostListItem)
   .sort((a, b) => b.date.getTime() - a.date.getTime());
 const { tags, years } = await getAllTagsAndYears();
 
+const filteredPosts = allPosts.filter((post) => post.year === year);
 const latestYear = findLatestYearWithPosts(years, allPosts);
-const filteredPosts = allPosts.filter((post) => post.year === latestYear);
+// Latest-year archive is a duplicate of /blog; point its canonical at /blog.
+const canonicalURL = year === latestYear ? "/blog/" : undefined;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <BaseHead
-      title="bluenex's blog"
-      description="A personal blog for sharing anything that piques my interest."
+      title={`bluenex's blog — ${year}`}
+      description={`Posts from ${year}.`}
+      canonicalURL={canonicalURL}
     />
   </head>
   <body>
@@ -34,7 +44,7 @@ const filteredPosts = allPosts.filter((post) => post.year === latestYear);
       filteredPosts={filteredPosts}
       tags={tags}
       years={years}
-      selectedYear={latestYear}
+      selectedYear={year}
       selectedTag={null}
       client:load
     />

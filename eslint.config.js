@@ -61,4 +61,16 @@ export default tseslint.config(
       ...reactHooks.configs.recommended.rules,
     },
   },
+  // Cloudflare Pages Functions run in the Workers runtime; expose Web globals.
+  {
+    files: ["functions/**/*.{js,ts}"],
+    languageOptions: {
+      globals: {
+        URL: "readonly",
+        Response: "readonly",
+        Request: "readonly",
+        fetch: "readonly",
+      },
+    },
+  },
 );
