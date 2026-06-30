@@ -2,6 +2,9 @@
   "name": "bluenex.github.io-astro",
   "type": "module",
   "version": "0.0.1",
+  "engines": {
+    "node": ">=24"
+  },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
