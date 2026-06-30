@@ -1,4 +1,7 @@
 @import "tailwindcss";
+@import "@fontsource/bai-jamjuree/400.css";
+@import "@fontsource/bai-jamjuree/600.css";
+@import "@fontsource/bai-jamjuree/700.css";
 @plugin "@tailwindcss/typography";
 @plugin "@tailwindcss/forms";
 @custom-variant dark (&:where(.dark, .dark *));
