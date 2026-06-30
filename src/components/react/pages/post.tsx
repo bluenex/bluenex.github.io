@@ -32,6 +32,9 @@ const Post = ({ postData, children }: PostProps) => {
           "prose-a:hover:text-sky-700",
           "prose-blockquote:border-sky-500 prose-blockquote:bg-sky-100 prose-blockquote:py-0.5 prose-blockquote:not-italic",
           "prose-pre:border-2 prose-pre:border-gray-500 prose-pre:p-4",
+          // typography plugin wraps inline <code> with literal backtick chars
+          // via code::before/::after; strip them so `inline code` renders cleanly
+          "prose-code:before:content-none prose-code:after:content-none",
           "prose-li:leading-6",
           "prose-img:mx-auto",
           "prose-a:dark:text-sky-400",
